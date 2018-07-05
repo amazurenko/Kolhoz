@@ -7,7 +7,8 @@ const game = (state = {}, action) => {
                 totalBalls: 0,
                 totalBulls: 0,
                 reds: 0,
-                yellows: 0
+                yellows: 0,
+                log: []
             }
         case 'SET_BALL':
             const id = action.payload.playerId;
@@ -49,22 +50,34 @@ const game = (state = {}, action) => {
             let totalBalls = state.totalBalls + 1;
             let reds = itWasRed ? state.reds + 1 :  state.reds;
             let yellows = itWasRed ? state.yellows :  state.yellows + 1;
+            let date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let newLog = [{time: `${hours}:${minutes}`, name: action.payload.playerName, ball: itWasRed ? 'красный' : 'желтый', bulls: allBuls}, ...state.log]
+
             return {
                 ...state,
                 totalBalls: totalBalls,
                 reds: reds,
                 yellows: yellows,
-                players: playersOrange
+                players: playersOrange,
+                log: newLog
             }
         case 'SET_RED':
             balls = state.balls + 1;
+
             return {
                 ...state,
                 balls: balls
             }
         case 'SET_BULL':
+        let dateB = new Date();
+        let hoursB = dateB.getHours();
+        let minutesB = dateB.getMinutes();
+        console.log('SET_BULL',action.payload.playerName);
+        let newLogB = [{time: `${hoursB}:${minutesB}`, name: action.payload.playerName, ball: 'bull'}, ...state.log]
             let playersBull = state.players.map(player => {
-                if (player.id == action.payload) {
+                if (player.id == action.payload.playerId) {
                     player.bull++;
                     player.tottalBulls++;
                     return player;
@@ -75,7 +88,8 @@ const game = (state = {}, action) => {
             return {
                 ...state,
                 totalBulls: totalBulls,
-                players: playersBull
+                players: playersBull,
+                log: newLogB
             }
         case 'SET_LAST':
             balls = state.balls + 1;

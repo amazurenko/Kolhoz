@@ -81,7 +81,44 @@ class Game extends React.Component {
                             <GameStatistic />
                             <PlayersStatistic />
                         </div>
-                        <div className="css-log">{game.balls}</div>
+
+
+
+                        <div className="css-log">
+                            <div className='css-logs-container'>
+                                {game.log.map((it, index) => {
+                                    return  it.ball == 'bull'
+                                    ? (
+                                        <div key={index} className='css-log-item'>
+                                            <div className='css-log-time red' >{it.time}</div>
+                                            <span>Игрок</span>
+                                            <div className='css-log-name'>{it.name}</div>
+                                            <span>получил штраф</span>
+                                        </div>
+                                    )
+                                    : (
+                                        <div key={index} className='css-log-item'>
+                                            <div className='css-log-time' >{it.time}</div>
+                                            <span>Игрок</span>
+                                            <div className='css-log-name'>{it.name}</div>
+                                            <span>забил</span>
+                                            <div className={['css-log-ball', it.ball == 'красный' ? 'red' : 'yellow'].join(' ')}>{it.ball}</div>
+                                            <span>шар</span>
+                                            {it.bulls != 0 && (<div className='css-log-bulls'>{` + ${it.bulls} за штраф`}</div>)
+                                            }
+                                        </div>
+                                    )
+                                })}
+                                       
+
+
+
+
+
+
+
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="css-footer">
@@ -89,7 +126,7 @@ class Game extends React.Component {
                         <button className='css-button'>Начать реверс</button>
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 }
@@ -97,11 +134,11 @@ class Game extends React.Component {
 const mapStateToProps = (state) => state;
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleBall(playerId, points, itWasRed) {
-            dispatch(setBall(playerId, points, itWasRed))
+        handleBall(playerId, points, itWasRed, playerName) {
+            dispatch(setBall(playerId, points, itWasRed, playerName))
         },
-        handleBull(playerId) {
-            dispatch(setBull(playerId))
+        handleBull(playerId, playerName) {
+            dispatch(setBull(playerId, playerName))
         },
         handleLast(playerId) {
             dispatch(setLast(playerId))

@@ -56,7 +56,6 @@ class Options extends React.Component {
             setValidation,
             clearValidation
         } = this.props;
-        console.log('Options',this.props);
         const validation = this.validateNames(players);
         return (
             <div className="css-options componentContainer">

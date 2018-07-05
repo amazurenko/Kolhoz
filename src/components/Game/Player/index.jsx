@@ -32,17 +32,17 @@ class Player extends React.Component {
                     <div className="css-name">{`${name}:`}</div>
                     <div className={["css-current", this.getClass()].join(' ')}>{current}</div>
                     <div className="css-add">
-                        <button className="css-button" onClick={handleBall.bind(this, id, 1, false)}>+</button>
+                        <button className="css-button" onClick={handleBall.bind(this, id, 1, false, name)}>+</button>
                     </div>
                     {withRed
                     ?   (
                         <div className="css-double">
-                            <button className="css-button" onClick={handleBall.bind(this, id, redPoints, true)}>+</button>
+                            <button className="css-button" onClick={handleBall.bind(this, id, redPoints, true, name)}>+</button>
                         </div>
                         )
                     : null}
                     <div className="css-bull-button">
-                        <button className="css-button" onClick={handleBull.bind(this, id)}>
+                        <button className="css-button" onClick={handleBull.bind(this, id, name)}>
                             <img className='css-bull-icon' src={img} alt=""/>
                         </button>
                     </div>

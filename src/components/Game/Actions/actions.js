@@ -12,20 +12,25 @@ export const setPlayerList = (list) => (
     }
 );
 
-export const setBall = (playerId, points, itWasRed) => (
+export const setBall = (playerId, points, itWasRed, playerName) => (
     {
         type: SET_BALL,
         payload: {
             playerId: playerId,
             points: points,
-            itWasRed: itWasRed
+            itWasRed: itWasRed,
+            playerName: playerName
         }
     }
 );
-export const setBull = (playerId) => (
+export const setBull = (playerId, playerName) => (
     {
         type: SET_BULL,
-        payload: playerId
+        payload: {
+            playerId: playerId,
+            playerName: playerName
+        }
+        
     }
 );
 export const setLast = (playerId) => (

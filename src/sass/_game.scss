@@ -201,6 +201,30 @@
             }
             .css-log{
                 flex-grow: 1;
+                overflow: auto;
+                .css-logs-container{
+                    .css-log-item {
+                        display: flex;
+                        font-size: 14px;
+                        .css-log-time {
+                            margin: 0 6px;
+                            font-size: 14px;
+                            &.red{color: $_redText}
+                        }
+                        .css-log-name {
+                            margin: 0 6px;
+                            color: $_lightBlueText;
+                        }
+                        .css-log-ball {
+                            margin: 0 6px;
+                            &.red{color: $_redText}
+                            &.yellow{color: $_orangeText}
+                        }
+                        .css-log-bulls {
+                            margin: 0 6px;
+                        }
+                    }
+                }
             }
             .css-statistic,
             .css-log {
