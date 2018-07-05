@@ -1,0 +1,72 @@
+.css-options{
+    .css-controls{
+        justify-content: space-between;
+    }
+    .css-players-list{
+        width: 44%;
+    }
+    .css-start-options-list{
+        width: 60%;
+        .css-start-options{
+            .css-start-option{
+                display: flex;
+                justify-content: space-between;
+                border-top: 1px solid $_mainBorderColor;
+                padding-top: 10px;
+                .css-start-option-label {
+                    width: 34%;
+                }
+                .css-start-option-content{
+                    width: 66%;
+                    .css-start-option-content-item{
+                        margin-bottom: 8px;
+                        cursor: pointer;
+                        transition: 0.5s;
+                        &.selected{
+                            color: $_lightBlueText;
+                        }
+                        .css-set-container{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            .css-start-option-content-item{
+                                margin-bottom: 0;
+                            }
+                            .css-text-input{
+                                padding: 0;
+                                font-size: 28px;
+                                border-top: none;
+                                border-right: none;
+                                border-left: none;
+                                width: 68%;
+                                flex-basis: 64%;
+                                color: $_orangeText;
+                                &:focus{
+                                    outline: none;
+                                    box-shadow: none;
+                                }
+                             }
+                        }
+                    }
+                 }
+                &.BallPrice {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .ball-price-container{
+            display: flex;
+            justify-content: flex-end;
+            .css-text-input{
+                width: 66%;
+                color: orange;
+                font-size: 26px;
+                padding: 0;
+                &:focus{
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}

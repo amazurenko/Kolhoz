@@ -1,0 +1,108 @@
+.css-checkList {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    bottom: 0;
+    .css-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #929292;
+        opacity: .5;
+        z-index: 1;
+    }
+    .css-list{
+        left: calc(50% - 360px);
+        top: 260px;
+        width: 720px;
+        background-color: #fff;
+        z-index: 2;
+        position: absolute;
+        border-radius: 6px;
+        box-shadow: 4px 4px 12px grey;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .css-header{
+            margin-bottom: 50px;
+        }
+        .css-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px 40px 0 40px;
+            .css-players{
+                font-size: 22px;
+                width: 100%;
+                display: flex;
+                padding-bottom: 16px;
+                border-bottom: 1px solid $_mainBorderColor;
+                margin-bottom: 20px;
+                .css-title {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-basis: 24%;
+                    margin-right: 44px;
+                }
+                .css-num{
+                    font-size: 52px;
+                    color: #fff;
+                    height: 60px;
+                    width: 60px;
+                    background-color: #ff8f2f;
+                    border-radius: 50%;
+                    text-align: center;
+                    margin-right: 16px;
+                    padding: 24px;
+                }
+                .css-play {
+                    display: inline-block;
+                }
+                .css-items{
+                    padding: 0;
+                    .css-item{
+                        margin-bottom: 6px;
+                    }
+                }
+            }
+            .css-start-options {
+                font-size: 22px;
+                width: 100%;
+                display: flex;
+                padding-bottom: 16px;
+                border-bottom: 1px solid $_mainBorderColor;
+                margin-bottom: 20px;
+                .css-title {
+                    color: $_orangeText;
+                    flex-basis: 24%;
+                    margin-right: 44px;
+                    font-size: 30px;
+                }
+                .css-items{
+                    .css-item{
+                        margin-bottom: 6px;
+                    }
+                }
+            }
+        }
+        .css-footer{
+            padding:  0 40px 40px 40px;
+            .css-footer-controls{
+                display: flex;
+                justify-content: space-between;
+                .css-button{
+                    width: 54px;
+                    text-align: center;
+                    box-shadow: none;
+                    &:hover {
+                        box-shadow: $_shadow;
+                    }
+                }
+            }
+        }
+    }
+}

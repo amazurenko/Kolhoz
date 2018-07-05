@@ -1,0 +1,111 @@
+@mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}  
+  }
+
+.css-app{
+    height: 100vh;
+    .css-header {
+        height: 76px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $_mainBorderColor;
+        padding: 14px 60px;
+        margin-bottom: 30px;
+            .css-logo {
+                width: 80px;
+                height: 80px;
+                background-color: $_orangeText;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .css-logo-label {
+                    color: #fff;
+                    font-size: 20px;
+                    font-weight: 800;
+                }
+            }
+            .css-navigation {
+                width: 54%;
+                display: flex;
+                justify-content: space-between;
+                .css-button{
+                    min-width: 180px;
+                    padding: 16px 30px;
+                }
+            }
+    }
+    .componentContainer{
+        width: 42%;
+        margin: 0 auto;
+    }
+}
+.css-button{
+    padding: 8px 30px;
+    border: 1px solid $_mainBorderColor;
+    background: none;
+    border-radius: 2px;
+    color: $_mainTextColor;
+    cursor: pointer;
+    transition: 0.2s;
+    &:focus{
+        outline: none;
+    }
+    &:hover{
+        box-shadow: $_shadow;
+    }
+    &.removePlayer {
+        padding: 0;
+        padding: 0px;
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+        border-color: #ff9393;
+    }
+}
+
+.css-text-input {
+    width: 300px;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 2px;
+    border: 1px solid $_mainBorderColor;
+    color: $_mainTextColor;
+    transition: 0.2s;
+    @include placeholder {
+        color: $_ligthTextColor;
+    }
+    &:focus{
+        outline: none;
+        box-shadow: $_shadow;
+    }
+    &.marginRight{
+        width: 220px;
+        margin-right: 20px;
+    }
+}
+
+.css-600pxContainer {
+    margin-bottom: 20px;
+    text-align: justify;
+    height: 600px;
+    overflow: auto;
+    &.options {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #e0dddd;
+    }
+}
+
+.css-controls{
+    display: flex;
+    justify-content: flex-end;
+}
+.css-validation {
+    color: red;
+    margin-top: 10px;
+}

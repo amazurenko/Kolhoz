@@ -1,0 +1,61 @@
+.css-game-statistic{
+    display: flex;
+    width: 100%;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #d0d0d0;
+    padding-bottom: 8px;
+    .css-game-stat-details{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-grow: 3;
+        .css-stat-bulls{
+            position: relative;
+            border-radius: 50%;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            .css-stat-bull{
+                height: 40px;
+                width: 40px;
+                opacity: 0.2;
+            }
+            .css-total-bulls{
+                position: absolute;
+                color: #737373;
+                left: 23px;
+                font-size: 18px;
+                top: 18px;
+            }
+        }
+        .css-stat {
+            margin: 0 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            .css-value {
+                color: white;
+                font-size: 18px;
+            }
+            &.yellow {
+                background: $_orangeText;
+            }
+            &.red {
+                background: $_redText;
+            }
+        }
+    }
+    .css-game-stat-total{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        font-size: 18px;
+        border: 1px solid $_mainBorderColor;
+        border-radius: 6px;
+        margin-left: 4px;
+    }
+}

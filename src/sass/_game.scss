@@ -1,0 +1,223 @@
+@import '_gamestat';
+@import '_payersstat';
+
+.css-game {
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 135px);
+
+    .css-body {
+        height: 80%;
+        display: flex;
+        justify-content: space-between;
+        .css-left-bar {
+            width: 16%;
+            border-right: 1px solid $_mainBorderColor;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            .css-timer,
+            .css-info {
+                width: 88%;
+                background-color: #f7f7f7;
+                border-radius: 6px;
+                padding: 10px;
+            }
+            .css-timer {
+                flex-grow: 1;
+                margin-bottom: 10px;
+
+            }
+            .css-info {
+                flex-grow: 3;
+            }
+
+        }
+        .css-center-block {
+            width: 58%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            .css-bull{
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                .css-bull-item{
+                    min-width: 120px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .css-bull-item-name{
+                        margin-bottom: 4px;
+                        max-width: 124px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    .css-bull-image {
+                        width: 46px;
+                        height: 46px;
+                    }
+                }
+            }
+            .css-main{
+                width: 100%;
+                background-color: #f7f7f7;
+                border-radius: 6px;
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                .css-players-grid {
+                    display: flex;
+                    flex-direction: column;
+                    .css-player {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 16px 10px;
+                        border-bottom: 1px solid $_mainBorderColor;
+                        .css-player-bar {
+                            display: flex;
+                            align-items: center;
+                            .css-button{
+                                padding: 0;
+                                width: 50px;
+                                height: 50px;
+                                border-radius: 50%;
+                                border: none;
+                                color: white;
+                            }
+                            .css-name {
+                                width: 200px;
+                                max-width: 200px;
+                                font-size: 36px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                word-break: none;
+                                white-space: nowrap;
+                                margin-right: 10px;
+                            }
+                            .css-current {
+                                font-size: 30px;
+                                font-weight: 700;
+                                width: 110px;
+                                height: 50px;
+                                border-radius: 50%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding-left: 0px;
+                                transition: 1s;
+                                &.blue{
+                                    color: $_lightBlueText;
+                                    border: 1px solid $_lightBlueText;
+                                }
+                                &.red{
+                                    color: $_redText;
+                                    border: 1px solid $_redText;
+                                }
+                                &.grey{
+                                    color: $_mainTextColor;
+                                    border: 1px solid $_mainTextColor;
+                                }
+                            }
+                            .css-add {
+                                padding: 0px 40px 0 60px;
+                                .css-button{
+                                    background-color: $_orangeText;
+                                    font-size: 45px;
+                                }
+                            }
+                            .css-bull-button{
+                                padding: 0 40px 0 40px;
+                                .css-button{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    
+                                    .css-bull-icon{
+                                        width: 40px;
+                                        opacity: 0.5;
+                                        transition: 0.5s;
+                                        &:hover{
+                                            opacity: 1;
+                                        }
+                                    }
+                                    &:hover {
+                                        box-shadow: none;
+                                    }
+                                }
+                            }
+                            .css-double{
+                                padding: 0 40px 0 40px;
+                               .css-button{
+                                    background-color: $_redText;
+                                    font-size: 45px;
+                                } 
+                            }
+                            .css-last{
+                                padding: 0 40px 0 40px;
+                                .css-button{
+                                    background-color: $_greenText;
+                                    font-size: 30px;
+                                }
+                            }
+                        }
+                        .css-price{
+                            font-size: 20px;
+                            color: $_redText;
+                        }
+                    }
+                }
+                .css-udo {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            }
+            .css-main-block-footer{
+                padding: 4px 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 80px;
+            }
+        }
+        .css-right-bar {
+            width: 24%;
+            border-left: 1px solid $_mainBorderColor;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            .css-statistic{
+                margin-bottom: 10px;
+            }
+            .css-log{
+                flex-grow: 1;
+            }
+            .css-statistic,
+            .css-log {
+                width: 92%;
+                background-color: #f7f7f7;
+                border-radius: 6px;
+                padding: 10px;
+            }
+        }
+    }
+    .css-footer {
+        height: 10%;
+        border-top: 1px solid $_mainBorderColor;
+        padding-top: 14px;
+        display: flex;
+        justify-content: flex-end;
+        .css-footer-controls {
+            .css-button {
+                padding: 16px 30px;
+            }
+        }
+    }
+}
