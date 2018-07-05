@@ -1,5 +1,5 @@
 {
-  "name": "Some",
+  "name": "KZ",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -7,8 +7,12 @@
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --mode development"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grifkarimani/Kolhoz.git"
+  },
   "keywords": [],
-  "author": "",
+  "author": "grifkarimani",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^8.6.3",
