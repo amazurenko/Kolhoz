@@ -14,10 +14,10 @@
                 border-top: 1px solid $_mainBorderColor;
                 padding-top: 10px;
                 .css-start-option-label {
-                    width: 34%;
+                    width: 40%;
                 }
                 .css-start-option-content{
-                    width: 66%;
+                    width: 50%;
                     .css-start-option-content-item{
                         margin-bottom: 8px;
                         cursor: pointer;
@@ -31,6 +31,7 @@
                             align-items: center;
                             .css-start-option-content-item{
                                 margin-bottom: 0;
+                                width: 50%;
                             }
                             .css-text-input{
                                 padding: 0;

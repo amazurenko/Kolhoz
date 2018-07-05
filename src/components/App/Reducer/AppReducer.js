@@ -1,5 +1,5 @@
 const initialState = {
-    currentPage: "Options",
+    currentPage: "Rules",
     isOverlay: false,
     validationMessages: []
 };

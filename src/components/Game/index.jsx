@@ -72,7 +72,7 @@ class Game extends React.Component {
                                         </div>
                                     ))}
                                 </div>
-                                <button className="css-button">UNDO</button>
+                                <button className="css-button">Откатить ход</button>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ class Game extends React.Component {
                 </div>
                 <div className="css-footer">
                     <div className="css-footer-controls">
-                        <button className='css-button'>COMPLETE</button>
+                        <button className='css-button'>Начать реверс</button>
                     </div>
                 </div>
             </div>
