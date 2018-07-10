@@ -69,15 +69,37 @@ const options = (state = initialState, action) => {
                 ...state,
                 players: newNameList
             };
+        case "SET_MARKER":
+            return {
+                ...state,
+                markerName: action.payload
+            }
         case "SELECT_OPTION":
             let newState = Object.assign({}, state);
             newState[action.payload.key] = action.payload.value;
+            if(action.payload.key == 'withRed') {
+                if(action.payload.value){
+                    newState.lastBall = newState.redPoints;
+                }else {
+                    newState.lastBall = 1;
+                    newState.redPoints = 2;
+                }
+            }
+            if(action.payload.key == 'lastBallByCost') {
+                action.payload.value
+                ? newState.withRed ?  newState.lastBall = newState.redPoints : newState.lastBall = 1
+                : newState.withRed ? newState.lastBall = newState.redPoints : newState.lastBall = 1;
+            }
             return {
                 ...newState
             };
         case "SET_STORE_VALUE":
             let newStateValue = Object.assign({}, state);
             newStateValue[action.payload.key] = action.payload.value;
+            if(action.payload.key == 'redPoints') {
+                newStateValue.lastBall = action.payload.value;
+                
+            }
             return {
                 ...newStateValue
             };

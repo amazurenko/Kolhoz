@@ -8,6 +8,20 @@
     .css-start-options-list{
         width: 60%;
         .css-start-options{
+            .css-marker{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                .css-marker-title{
+                    width: 40%;
+                }
+                .css-marker-name {
+                    width: 50%;
+                    .css-text-input{
+                        width: calc(100% - 18px);
+                    }
+                }
+            }
             .css-start-option{
                 display: flex;
                 justify-content: space-between;

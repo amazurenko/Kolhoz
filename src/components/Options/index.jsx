@@ -2,13 +2,15 @@ import React from 'react';
 import Players from "./Players/index.jsx"
 import StartOptions from "./StartOptions/index.jsx"
 import { connect } from 'react-redux';
-import { addNewPlayer,
-        removePlayer,
-        setPlayerName,
-        setOption,
-        setStoreValue,
-        setBallPrice
-     } from './Actions/actions';
+import {
+    addNewPlayer,
+    removePlayer,
+    setPlayerName,
+    setOption,
+    setStoreValue,
+    setBallPrice,
+    setMarker
+} from './Actions/actions';
 
 class Options extends React.Component {
     constructor(props) {
@@ -16,15 +18,15 @@ class Options extends React.Component {
     }
     showStartOptionsList(validation) {
         this.props.setValidation(validation);
-        if (validation.length == 0){
+        if (validation.length == 0) {
             this.props.setOverlay();
         }
     }
     validateNames(players) {
         let messages = [];
         players.forEach(player => {
-            if(player.name == '') messages.push("ERR!!    ВВЕДИТЕ ИМЯ");
-            if(player.name != '' && player.name.length < 3) messages.push("ERR!! ИМЯ ДОЛЖНО СОДЕРЖАТЬ МИНИМУМ 3 СИМВОЛА");
+            if (player.name == '') messages.push("ERR!!    ВВЕДИТЕ ИМЯ");
+            if (player.name != '' && player.name.length < 3) messages.push("ERR!! ИМЯ ДОЛЖНО СОДЕРЖАТЬ МИНИМУМ 3 СИМВОЛА");
         });
         return [... new Set(messages)];
     }
@@ -42,9 +44,10 @@ class Options extends React.Component {
             customBallPrice,
             lastBall,
             ballPrice,
-            
+
 
             setValue,
+            setMarkerName,
             setPage,
             setPrice,
             selectOption,
@@ -67,7 +70,7 @@ class Options extends React.Component {
                             deletePlayer={deletePlayer}
                             setName={setName}
                             validationMessages={validationMessages}
-                            clearValidation = {clearValidation}
+                            clearValidation={clearValidation}
                         />
                     </div>
                     <div className="css-start-options-list">
@@ -86,6 +89,7 @@ class Options extends React.Component {
                             playersNum={players.length}
                             lastBallByCost={lastBallByCost}
                             customBallPrice={customBallPrice}
+                            setMarkerName={setMarkerName}
                         />
                     </div>
                 </div>
@@ -112,13 +116,13 @@ const mapDispatchToProps = (dispatch) => {
         setName(event) {
             dispatch(setPlayerName(event))
         },
-
-
-
+        setMarkerName(event) {
+            dispatch(setMarker(event))
+        },
         selectOption(key, value) {
             dispatch(setOption(key, value))
         },
-        setValue(key, event){
+        setValue(key, event) {
             dispatch(setStoreValue(key, event))
         }
     }

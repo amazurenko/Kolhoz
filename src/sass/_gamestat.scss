@@ -16,16 +16,22 @@
             display: flex;
             align-items: center;
             .css-stat-bull{
-                height: 40px;
-                width: 40px;
-                opacity: 0.2;
+                height: 30px;
+                width: 30px;
+                opacity: .2;
             }
             .css-total-bulls{
                 position: absolute;
-                color: #737373;
-                left: 23px;
+                color: #6d6d6d;
+                left: 4px;
                 font-size: 18px;
-                top: 18px;
+                top: 3px;
+                border-radius: 50%;
+                width: 38px;
+                height: 38px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
         .css-stat {
@@ -39,6 +45,13 @@
             .css-value {
                 color: white;
                 font-size: 18px;
+            }
+            &.white {
+                background: white;
+                border: 1px solid $_mainBorderColor;
+                .css-value {
+                    color: $_mainTextColor;
+                }
             }
             &.yellow {
                 background: $_orangeText;

@@ -14,6 +14,7 @@ class CheckList extends React.Component {
                 position: Math.floor(Math.random() * 10001),
                 current: 0,
                 bull: 0,
+                totalWhites:0,
                 totalReds: 0,
                 totalYellows: 0,
                 tottalBulls: 0
@@ -70,10 +71,10 @@ class CheckList extends React.Component {
                                     {payAll ? 'Свет на всех' : 'Платят минусовые'}
                                 </div>
                                 <div className="css-item">
-                                    {isRandom ? 'Автоматическая жеребьевка' : 'Без жеребьевки'}
+                                    {isRandom ? 'Автожеребьевка' : 'Без жеребьевки'}
                                 </div>
                                 <div className="css-item">
-                                    {withRed ? `С красным. Красный за ${redPoints}` : 'Игра одним шаром'}
+                                    {withRed ? `С красным. Красный за ${redPoints}` : 'Игра c одним цветным'}
                                 </div>
                                 <div className="css-item">
                                     {lastBallByCost ? `Последний за ${withRed ? redPoints : 1}` : `Последний за ${lastBall}`}

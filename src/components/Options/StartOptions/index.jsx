@@ -22,9 +22,20 @@ class StartOptions extends React.Component {
             ballPrice,
 
             setValue,
+            setMarkerName,
             selectOption } = this.props;
         return (
             <div className="css-start-options">
+                <div className="css-marker">
+                    <div className="css-marker-title">Маркёр:</div>
+                    <div className="css-marker-name">
+                        <input 
+                            className='css-text-input' 
+                            type="text" 
+                            placeholder='Сегодня маркёрит...'
+                            onChange={setMarkerName}/>
+                    </div>
+                </div>
                 <div className='css-start-option Reverce'>
                     <div className="css-start-option-label">Реверс:</div>
                     <div className="css-start-option-content">
@@ -71,13 +82,13 @@ class StartOptions extends React.Component {
                             <div className="css-set-container">
                                 <div className={['css-start-option-content-item', withRed ? 'selected' : ''].join(' ')}
                                     onClick={selectOption.bind(this, 'withRed', true)}>С красным</div>
-                                {withRed && 
-                                (<input 
-                                    className='css-text-input' 
-                                    type="number" 
-                                    ref={this.red} 
-                                    onChange={setValue.bind(this, 'redPoints')}
-                                    value={redPoints}/>)}
+                                {withRed &&
+                                    (<input
+                                        className='css-text-input'
+                                        type="number"
+                                        ref={this.red}
+                                        onChange={setValue.bind(this, 'redPoints')}
+                                        value={redPoints} />)}
                             </div>
                         </div>
                     </div>
@@ -89,14 +100,14 @@ class StartOptions extends React.Component {
                             onClick={selectOption.bind(this, 'lastBallByCost', true)}>Стоимость шара</div>
                         <div className='css-start-option-content-item'>
                             <div className="css-set-container">
-                                <div className={['css-start-option-content-item', lastBallByCost ? '' : 'selected'].join(' ')} 
-                                     onClick={selectOption.bind(this, 'lastBallByCost', false)}>Установить</div>
-                                    {!lastBallByCost && 
-                                    (<input className='css-text-input' 
-                                            type="number" 
-                                            ref={this.last} 
-                                            onChange={setValue.bind(this, 'lastBall')}
-                                            value={lastBall}/>)}
+                                <div className={['css-start-option-content-item', lastBallByCost ? '' : 'selected'].join(' ')}
+                                    onClick={selectOption.bind(this, 'lastBallByCost', false)}>Установить</div>
+                                {!lastBallByCost &&
+                                    (<input className='css-text-input'
+                                        type="number"
+                                        ref={this.last}
+                                        onChange={setValue.bind(this, 'lastBall')}
+                                        value={lastBall} />)}
                             </div>
                         </div>
                     </div>
@@ -110,13 +121,13 @@ class StartOptions extends React.Component {
                             <div className="css-set-container">
                                 <div className={['css-start-option-content-item', customBallPrice ? 'selected' : ''].join(' ')}
                                     onClick={selectOption.bind(this, 'customBallPrice', true)}>Установить</div>
-                                {customBallPrice && 
-                                    (<input className='css-text-input' 
-                                            type="number" 
-                                            step='0.5' 
-                                            ref={this.price}
-                                            onChange={setValue.bind(this, 'ballPrice')}
-                                            value={ballPrice}/>)}
+                                {customBallPrice &&
+                                    (<input className='css-text-input'
+                                        type="number"
+                                        step='0.5'
+                                        ref={this.price}
+                                        onChange={setValue.bind(this, 'ballPrice')}
+                                        value={ballPrice} />)}
                             </div>
                         </div>
                     </div>

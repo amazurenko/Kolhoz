@@ -4,53 +4,64 @@
     .css-stat-player {
         display: flex;
         padding: 4px 0;
+        justify-content: space-between;
         .css-player-stat-name{
             font-size: 20px;
             margin-right: 12px;
             min-width: 110px;
-            max-width: 110px;
+            max-width: 190px;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        .css-player-total {
+        .css-player-stat-options{
             display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            margin-right: 12px;
-            .css-player-total-value {
-                color: white;
-            }
-            &.yellows{
-                background-color: $_orangeText;
-            }
-            &.reds{
-                background-color: $_redText;
-            }
-            &.bulls{
-                .css-player-stat-bull{
-                    opacity: 0.2;
-                    width: 30px;
-                    min-width: 30px;
-                    height: 30px;
-                    position: relative;
-                }
+            .css-player-total {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                margin-right: 12px;
                 .css-player-total-value {
-                    position: absolute;
-                    color: #737373;
+                    color: white;
                 }
-            }
-            &.all{
-                width: 40px;
-                margin: 0;
-                border: 1px solid $_mainBorderColor;
-                border-radius: 6px;
-                .css-player-total-value {
-                    color: inherit;
+                &.whites{
+                    background-color: white;
+                    border: 1px solid $_mainBorderColor;
+                    .css-player-total-value{
+                        color: $_mainTextColor;
+                    }
+                }
+                &.yellows{
+                    background-color: $_orangeText;
+                }
+                &.reds{
+                    background-color: $_redText;
+                }
+                &.bulls{
+                    .css-player-stat-bull{
+                        opacity: 0.2;
+                        width: 30px;
+                        min-width: 30px;
+                        height: 30px;
+                        position: relative;
+                    }
+                    .css-player-total-value {
+                        position: absolute;
+                        color: #737373;
+                    }
+                }
+                &.all{
+                    margin: 0;
+                    border: 1px solid $_mainBorderColor;
+                    border-radius: 6px;
+                    .css-player-total-value {
+                        color: inherit;
+                    }
                 }
             }
         }
+
     }
 }

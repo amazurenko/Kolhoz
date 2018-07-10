@@ -12,33 +12,41 @@ class PlayersStatistic extends React.Component {
             <div className="css-players-statistic">
                 {players.map(player => (
                     <div className='css-stat-player' key={player.id}>
+
                         <div className="css-player-stat-name">
                             {`${player.name}:`}
                         </div>
-                        <div className="css-player-total yellows">
-                            <div className="css-player-total-value">
-                                {player.totalYellows}
-                            </div>
-                        </div>
-                        {withRed && (
-                            <div className="css-player-total reds">
+                        <div className="css-player-stat-options">
+                            <div className="css-player-total whites">
                                 <div className="css-player-total-value">
-                                    {player.totalReds}
+                                    {player.totalWhites}
                                 </div>
-                            </div>)}
-                        <div className="css-player-total bulls">
-                            <img className='css-player-stat-bull' src={img} alt=""/>
-                            <div className="css-player-total-value">
-                                {player.tottalBulls}
                             </div>
-                        </div>
-                        {withRed && (
+                            <div className="css-player-total yellows">
+                                <div className="css-player-total-value">
+                                    {player.totalYellows}
+                                </div>
+                            </div>
+                            {withRed && (
+                                <div className="css-player-total reds">
+                                    <div className="css-player-total-value">
+                                        {player.totalReds}
+                                    </div>
+                                </div>)}
+                            <div className="css-player-total bulls">
+                                <img className='css-player-stat-bull' src={img} alt="" />
+                                <div className="css-player-total-value">
+                                    {player.tottalBulls}
+                                </div>
+                            </div>
                             <div className="css-player-total all">
                                 <div className="css-player-total-value">
-                                    {player.totalYellows + player.totalReds}
+                                    {player.totalYellows + player.totalReds + player.totalWhites}
                                 </div>
                             </div>
-                        )}
+                        </div>
+
+
                     </div>
                 ))}
             </div>

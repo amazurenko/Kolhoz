@@ -8,7 +8,9 @@ const initialState = {
     lastBall: 1,
     lastBallByCost: true,
     customBallPrice: false,
+    whiteBalls: 15,
     ballPrice: 0.5,
+    markerName: "",
     players: [
         {
             id: 1,

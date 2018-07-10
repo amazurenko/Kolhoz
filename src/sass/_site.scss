@@ -16,28 +16,36 @@
         padding: 14px 60px;
         margin-bottom: 30px;
             .css-logo {
-                width: 80px;
-                height: 80px;
-                background-color: $_orangeText;
-                border-radius: 50%;
+                width: 16%;
                 display: flex;
-                justify-content: center;
+                justify-content: flex-start;
                 align-items: center;
-                .css-logo-label {
-                    color: #fff;
-                    font-size: 20px;
-                    font-weight: 800;
+                .css-loog-image {
+                    width: 90px;
+                    height: 90px;
                 }
             }
-            .css-navigation {
-                width: 54%;
-                display: flex;
-                justify-content: space-between;
-                .css-button{
-                    min-width: 180px;
-                    padding: 16px 30px;
+            .css-header-content{
+                flex-grow: 1;
+                padding: 16px;
+                .css-header-info {
+                    .css-marker-container{
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: baseline;
+                        .css-marker-title{
+                            font-size: 20px;
+                        }
+                        .css-marker-value{
+                            font-size: 26px;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+                .css-navigation {
                 }
             }
+
     }
     .componentContainer{
         width: 42%;
@@ -50,6 +58,7 @@
     background: none;
     border-radius: 2px;
     color: $_mainTextColor;
+    font-size: 20px;
     cursor: pointer;
     transition: 0.2s;
     &:focus{

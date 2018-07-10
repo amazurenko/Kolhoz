@@ -12,7 +12,8 @@ import {
     SET_NAME,
     SELECT_OPTION,
     SET_PRICE,
-    SET_STORE_VALUE
+    SET_STORE_VALUE,
+    SET_MARKER
 } from "./actionTypes";
 
 export const addNewPlayer = () => (
@@ -66,6 +67,13 @@ export const setStoreValue = (key, event) => {
             key: key,
             value: value
         }
+    }
+}
+export const setMarker = (event) => {
+    let value = event.target.value;
+    return {
+        type: SET_MARKER,
+        payload: value
     }
 }
 
