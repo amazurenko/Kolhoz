@@ -5,3 +5,5 @@ export const SET_WHITE = 'SET_WHITE';
 export const SET_YELLOW = 'SET_YELLOW';
 export const SET_RED = 'SET_RED';
 export const SET_LAST = 'SET_LAST';
+export const START_REVERCE = 'START_REVERCE';
+export const SET_AVERS = 'SET_AVERS';

@@ -74,6 +74,8 @@ class Player extends React.Component {
             if (this.props.withReverce) {
                 this.setState({ reverceOverlay: true })
                 this.setState({ isOverlayLast: false })
+                console.log('this.props.players', this.props.players);
+                this.props.saveAvers(this.props.players);
             }
         }
     };
@@ -85,7 +87,9 @@ class Player extends React.Component {
     };
     stratReverce(isReverceAccept) {
         if (isReverceAccept) {
-            console.log('Rev is started')
+            // this.props.saveAvers();
+            if(!this.props.isReverce)this.props.setReverce()
+            this.setState({ reverceOverlay: false });
         } else {
             console.log('Showed game over Page')
         }
@@ -105,13 +109,17 @@ class Player extends React.Component {
             lastBallByCost,
             whites,
             withReverce,
+            isReverce,
+            players,
 
             handleBall,
             handleWhiteBall,
             handleYellowBall,
             handleRedBall,
             handleLastBall,
-            handleBull
+            handleBull,
+            setReverce,
+            saveAvers
         } = this.props;
         return (
             <div className="css-player">

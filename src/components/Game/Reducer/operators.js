@@ -193,3 +193,25 @@ export const getLastData = (state, payload) => {
         logMessage: newLogMessage
     }
 };
+
+export const resetAndRevercePlayers = (playersArray) => {
+    console.log('playersArray ENTER', playersArray);
+    let newPlayers = playersArray.map(player => {
+        player.current = 0;
+        player.bull = 0;
+        player.totalWhites = 0;
+        player.totalYellows = 0;
+        player.totalReds = 0;
+        player.tottalBulls = 0;
+        return player;
+    }).reverse();
+    console.log('playersArray OUT', playersArray);
+
+    return newPlayers;
+};
+
+export const startRevLogMessage = () => {
+    const time = getTime();
+    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: 'TEMP', message: ` Реверс начался`}
+    return newLogMessage;
+}

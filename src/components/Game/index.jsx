@@ -13,7 +13,9 @@ import {
     setWhite,
     setYellow,
     setRed,
-    setLast
+    setLast,
+    stratReverce,
+    setAvers
 } from './Actions/actions'
 
 class Game extends React.Component {
@@ -42,7 +44,9 @@ class Game extends React.Component {
             handleWhiteBall,
             handleYellowBall,
             handleRedBall,
-            handleLastBall
+            handleLastBall,
+            setReverce,
+            saveAvers
         } = this.props;
         const { withReverce, payAll, isRandom, withRed, redPoints, yellowPoints, lastBall, lastBallByCost, customBallPrice, ballPrice } = this.props.options;
         const bulls = this.playersWithBulls(game.players);
@@ -85,6 +89,10 @@ class Game extends React.Component {
                                         handleYellowBall={handleYellowBall}
                                         handleRedBall={handleRedBall}
                                         handleLastBall={handleLastBall}
+                                        setReverce={setReverce}
+                                        saveAvers={saveAvers}
+                                        isReverce={game.isReverce}
+                                        players={game.players}
                                     />
                                 })}
                             </div>
@@ -132,9 +140,6 @@ class Game extends React.Component {
                     </div>
                 </div>
                 <div className="css-footer">
-                    {/* <div className="css-footer-controls">
-                        <button className='css-button'>Начать реверс</button>
-                    </div> */}
                 </div>
             </div >
         )
@@ -163,6 +168,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         handleLastBall(config){
             dispatch(setLast(config))
+        },
+        setReverce(){
+            dispatch(stratReverce())
+        },
+        saveAvers(playersArr){
+            dispatch(setAvers(playersArr))
         }
     }
 }
