@@ -1,0 +1,90 @@
+.css-results{
+    margin: 0 auto;
+    width: 80%;
+    .css-results-wrapper{
+        display: flex;
+        justify-content: space-between;
+        .css-left{
+            padding: 69px 10px 10px 10px;
+            border-right: 1px solid $_mainBorderColor;
+            border-left: 1px solid $_mainBorderColor;
+            flex-basis: 15%;
+            .css-startoption {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+        }
+        .css-center{
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            border-right: 1px solid $_mainBorderColor;
+            border-left: 1px solid $_mainBorderColor;
+            flex-basis: 60%;
+            .header{
+                font-size: 34px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            .body {
+                .player{
+                    padding-bottom: 14px;
+                    border-bottom: 1px solid $_mainBorderColor;
+                    .player-name{
+                        font-size: 18px;
+                        color: $_orangeText;
+                        margin-bottom: 6px;
+                    }
+                    .player-current,
+                    .player-mon {
+                        margin-bottom: 6px;
+                        &.red {
+                            background-color: #fde3e3;
+                        }
+                        &.blue {
+                            background-color: #d8effd;
+                        }
+                    }
+                }
+            }
+            .center-left-left{
+                padding: 0 10px;
+                flex-grow: 6;
+            }
+            .css-center-left{
+                padding: 0 10px;
+                flex-grow: 1;
+            }
+            .css-center-right{
+                padding: 0 10px;
+                flex-grow: 1;
+            }
+        }
+        .css-right{
+            padding: 10px;
+            border-right: 1px solid $_mainBorderColor;
+            border-left: 1px solid $_mainBorderColor;
+            flex-basis: 20%;
+            .log-item {
+                display: flex;
+                &.red{
+                    color: #c13232;
+                }
+                &.yellow{
+                    color: #ec9800;
+                }
+                .time{
+                    margin-right: 6px;
+                    min-width: 20px;
+                }
+                .name{
+                    margin-right: 6px;
+                    min-width: 80px;
+                    max-width: 100px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}

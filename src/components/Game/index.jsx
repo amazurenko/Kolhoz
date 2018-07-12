@@ -15,7 +15,8 @@ import {
     setRed,
     setLast,
     stratReverce,
-    setAvers
+    setAvers,
+    setReverce
 } from './Actions/actions'
 
 class Game extends React.Component {
@@ -45,9 +46,12 @@ class Game extends React.Component {
             handleYellowBall,
             handleRedBall,
             handleLastBall,
+            setPage,
             setReverce,
-            saveAvers
+            saveAvers,
+            saveReverce
         } = this.props;
+        
         const { withReverce, payAll, isRandom, withRed, redPoints, yellowPoints, lastBall, lastBallByCost, customBallPrice, ballPrice } = this.props.options;
         const bulls = this.playersWithBulls(game.players);
         let whitesArr = new Array(15 - (game.whites > 15 ? 15 : game.whites)).fill(0);
@@ -73,7 +77,7 @@ class Game extends React.Component {
                                         key={player.id}
                                         {...player}
                                         handleBall={handleBall}
-                                        
+
                                         customBallPrice={customBallPrice}
                                         ballPrice={ballPrice}
                                         withRed={withRed}
@@ -91,8 +95,10 @@ class Game extends React.Component {
                                         handleLastBall={handleLastBall}
                                         setReverce={setReverce}
                                         saveAvers={saveAvers}
+                                        saveReverce={saveReverce}
                                         isReverce={game.isReverce}
                                         players={game.players}
+                                        setPage={setPage}
                                     />
                                 })}
                             </div>
@@ -160,20 +166,23 @@ const mapDispatchToProps = (dispatch) => {
         handleWhiteBall(config) {
             dispatch(setWhite(config))
         },
-        handleYellowBall(config){
+        handleYellowBall(config) {
             dispatch(setYellow(config))
         },
-        handleRedBall(config){
+        handleRedBall(config) {
             dispatch(setRed(config))
         },
-        handleLastBall(config){
+        handleLastBall(config) {
             dispatch(setLast(config))
         },
-        setReverce(){
+        setReverce() {
             dispatch(stratReverce())
         },
-        saveAvers(playersArr){
-            dispatch(setAvers(playersArr))
+        saveAvers() {
+            dispatch(setAvers())
+        },
+        saveReverce() {
+            dispatch(setReverce())
         }
     }
 }

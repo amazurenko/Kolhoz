@@ -8,7 +8,8 @@ class Player extends React.Component {
             {
                 isOverlayRed: false,
                 isOverlayLast: false,
-                reverceOverlay: false
+                reverceOverlay: false,
+                gameOver: false
             };
     };
     getClass() {
@@ -71,11 +72,18 @@ class Player extends React.Component {
             this.setState({ isOverlayLast: false })
         } else {
             this.props.handleLastBall(this.getOptionsForLast());
+            this.setState({ isOverlayLast: false })
             if (this.props.withReverce) {
-                this.setState({ reverceOverlay: true })
-                this.setState({ isOverlayLast: false })
-                console.log('this.props.players', this.props.players);
-                this.props.saveAvers(this.props.players);
+                if (!this.props.isReverce) {
+                    this.setState({ reverceOverlay: true })
+                    this.props.saveAvers();
+                } else {
+                    this.setState({ gameOver: true })
+                    this.props.saveReverce();
+                }
+            } else {
+                this.props.saveAvers();
+                this.setState({ gameOver: true })
             }
         }
     };
@@ -83,15 +91,25 @@ class Player extends React.Component {
         if (isYellowDroped) this.props.handleYellowBall(this.getOptionsForYellow());
         this.props.handleLastBall(this.getOptionsForLast());
         this.setState({ isOverlayRed: false })
-        if (this.props.withReverce) this.setState({ reverceOverlay: true })
+        if (this.props.withReverce) {
+            if (!this.props.isReverce) {
+                this.setState({ reverceOverlay: true })
+                this.props.saveAvers();
+            } else {
+                this.setState({ gameOver: true })
+                this.props.saveReverce();
+            }
+        } else {
+            this.props.saveAvers();
+            this.setState({ gameOver: true })
+        }
     };
     stratReverce(isReverceAccept) {
         if (isReverceAccept) {
-            // this.props.saveAvers();
-            if(!this.props.isReverce)this.props.setReverce()
+            if (!this.props.isReverce) this.props.setReverce()
             this.setState({ reverceOverlay: false });
         } else {
-            console.log('Showed game over Page')
+            this.setState({ gameOver: true })
         }
     }
     render() {
@@ -118,8 +136,10 @@ class Player extends React.Component {
             handleRedBall,
             handleLastBall,
             handleBull,
+            setPage,
             setReverce,
-            saveAvers
+            saveAvers,
+            saveReverce
         } = this.props;
         return (
             <div className="css-player">
@@ -144,6 +164,12 @@ class Player extends React.Component {
                     <div className="css-over-controls">
                         <button className='css-button' onClick={this.stratReverce.bind(this, true)}>Да</button>
                         <button className='css-button' onClick={this.stratReverce.bind(this, false)}>Нет</button>
+                    </div>
+                </div> : null}
+                {this.state.gameOver ? <div className="css-overlay Reverce">
+                    <div className="css-over-title">Конец</div>
+                    <div className="css-over-controls">
+                        <button className='css-button' onClick={setPage.bind(this, 'Results')}>Показать Статистику</button>
                     </div>
                 </div> : null}
                 <div className="css-player-bar">
@@ -183,7 +209,7 @@ class Player extends React.Component {
                         <button
                             className="css-button"
                             onClick={this.handleItWasLast.bind(this)}
-                        >Это был последний</button>
+                        >Закончил</button>
                     </div>)}
                 </div>
                 {customBallPrice

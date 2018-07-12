@@ -5,6 +5,7 @@ import Options from "../Options/index.jsx"
 import CheckList from "../CheckList/index.jsx"
 import Game from "../Game/index.jsx"
 import Header from './Header/index';
+import Results from '../Results/index';
 
 import {
     setNewPage,
@@ -24,6 +25,8 @@ class App extends React.Component {
                 return Options;
             case "Game":
                 return Game;
+            case "Results":
+                return Results;
             default:
                 return;
         }
@@ -33,7 +36,7 @@ class App extends React.Component {
         const CustomComponent = this.getComponent(currentPage);
         return (
             <div className='css-app'>
-                <Header/>
+                <Header />
                 <CustomComponent {...this.props} />
                 {
                     isOverlay && (<CheckList {...this.props} />)

@@ -7,7 +7,8 @@ import {
     SET_RED,
     SET_LAST,
     START_REVERCE,
-    SET_AVERS
+    SET_AVERS,
+    SET_REVERCE
 } from './actionTypes';
 
 export const setPlayerList = (list) => (
@@ -83,9 +84,13 @@ export const stratReverce = () => {
         type: START_REVERCE
     }
 };
-export const setAvers = (playersArr) => {
+export const setAvers = () => {
     return {
-        type: SET_AVERS,
-        payload: playersArr
+        type: SET_AVERS
+    }
+};
+export const setReverce = () => {
+    return {
+        type: SET_REVERCE
     }
 }

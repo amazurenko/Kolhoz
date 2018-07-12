@@ -1,4 +1,4 @@
-import { getBullData, getWhiteData, getYellowData, getRedData, getLastData, resetAndRevercePlayers, startRevLogMessage } from './operators'
+import { getBullData, getWhiteData, getYellowData, getRedData, getLastData, startRevLogMessage, startAvLogMessage } from './operators'
 
 const game = (state = {}, action) => {
     switch (action.type) {
@@ -12,69 +12,66 @@ const game = (state = {}, action) => {
                 whites: 0,
                 reds: 0,
                 yellows: 0,
-                log: [],
+                log: [startAvLogMessage()],
                 results: {
                     avers: {},
                     reverce: {}
                 }
             };
         case 'SET_AVERS':
-            console.log("SET_AVERS state", state);
-            let newState = {};
-            for (let prop in state) {
-                    newState[prop] = state[prop];
-            }
-            console.log("SET_AVERS newState", newState);
+            let newStateAvers = Object.assign({}, state);
             let avers = {
-                pl: action.payload,
-                totalBalls: newState.totalBalls,
-                totalBulls: newState.totalBulls,
-                whites: newState.whites,
-                reds: newState.reds,
-                yellows: newState.yellows
+                players: newStateAvers.players,
+                totalBalls: newStateAvers.totalBalls,
+                totalBulls: newStateAvers.totalBulls,
+                whites: newStateAvers.whites,
+                reds: newStateAvers.reds,
+                yellows: newStateAvers.yellows
             };
-            console.log("avers", avers);
-            const newResults = {...newState.results, avers: avers, reverce: {}};
-            console.log("SET_AVERS newResults", newResults);
-            const myState = {
-                ...state, 
-                results: newResults
+            const newResultsAv = { ...newStateAvers.results, avers: avers, reverce: {} };
+            return {
+                ...state,
+                results: newResultsAv
             }
-            console.log("myState", myState);
-            return myState;
+        case 'SET_REVERCE':
+            let newStateReverce = Object.assign({}, state);
+            let reverce = {
+                players: newStateReverce.players,
+                totalBalls: newStateReverce.totalBalls,
+                totalBulls: newStateReverce.totalBulls,
+                whites: newStateReverce.whites,
+                reds: newStateReverce.reds,
+                yellows: newStateReverce.yellows
+            };
+            const newResultsRev = { ...newStateReverce.results, reverce: reverce };
+            return {
+                ...state,
+                results: newResultsRev
+            }
+
         case 'START_REVERCE':
-            console.log("START_REVERCE state", state);
-            let newStateRev = {};
-            for (let prop in state) {
-                    newStateRev[prop] = state[prop];
-            }
-            console.log("START_REVERCE state", newStateRev);
-
-            debugger
-            // const cleanedPlayers = resetAndRevercePlayers(newStateRev.players);
-            let cleanedPlayers = newStateRev.players.map(function(player){
-                player.current = 0;
-                player.bull = 0;
-                player.totalWhites = 0;
-                player.totalReds = 0;
-                player.totalYellows = 0;
-                player.tottalBulls = 10;
-                return player;
-            })
-            console.log("cleanedPlayers", cleanedPlayers);
-
+            let newStateRev = Object.assign({}, state);
+            let cleanedPlayers = newStateRev.players.map(player => Object.assign({}, player,
+                {
+                    current: 0,
+                    bull: 0,
+                    totalWhites: 0,
+                    totalReds: 0,
+                    totalYellows: 0,
+                    tottalBulls: 0
+                }
+            ))
             const startReverceLogMessage = startRevLogMessage();
             let myNewState = {
                 ...state,
                 isReverce: true,
-                players: cleanedPlayers,
+                players: Array.from(cleanedPlayers),
                 totalBalls: 0,
                 totalBulls: 0,
                 whites: 0,
                 reds: 0,
                 yellows: 0,
-                log: [startReverceLogMessage, ...state.log],
-                results: state.results
+                log: [startReverceLogMessage, ...state.log]
             }
             return myNewState;
         case 'SET_BULL':
@@ -112,7 +109,7 @@ const game = (state = {}, action) => {
                 reds: redData.reds,
                 log: [redData.logMessage, ...state.log]
             };
-            case 'SET_LAST':
+        case 'SET_LAST':
             const lastData = getLastData(state, action.payload);
             return {
                 ...state,

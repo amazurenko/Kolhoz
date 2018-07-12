@@ -1,12 +1,12 @@
 const getIndexes = ((playersArray, playerId) => {
     let currentPlayerIndex = 0;
     let prevPlayerIndex = 0;
-    playersArray.forEach(function (it, i){
-        if(it.id == playerId) currentPlayerIndex = i;
+    playersArray.forEach(function (it, i) {
+        if (it.id == playerId) currentPlayerIndex = i;
     });
     prevPlayerIndex = currentPlayerIndex == 0
-    ? playersArray.length - 1
-    : currentPlayerIndex - 1;
+        ? playersArray.length - 1
+        : currentPlayerIndex - 1;
     return {
         currentPlayerIndex: currentPlayerIndex,
         prevPlayerIndex: prevPlayerIndex
@@ -23,15 +23,15 @@ const getTime = () => {
 };
 const getPlayerName = ((playersArray, playerId) => {
     let playerName;
-    playersArray.forEach(function (it, i){
-        if(it.id == playerId) playerName = it.name;
+    playersArray.forEach(function (it, i) {
+        if (it.id == playerId) playerName = it.name;
     });
     return playerName;
 });
 const getPlayersBulls = ((playersArray) => {
     let playersBulls = 0;
-    playersArray.forEach(function (it){
-        if(it.bull != 0) 
+    playersArray.forEach(function (it) {
+        if (it.bull != 0)
             playersBulls += it.bull;
     });
     return playersBulls;
@@ -50,7 +50,7 @@ export const getBullData = (state, payload) => {
     })
     const newTotalBulls = totalBulls + 1;
     const time = getTime();
-    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: getPlayerName(players, playerId), message: ` получил штраф`};
+    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: getPlayerName(players, playerId), message: `получил штраф` };
     return {
         players: newPlayers,
         totalBulls: newTotalBulls,
@@ -75,7 +75,7 @@ export const getWhiteData = (state, payload) => {
             player.current = player.current - 1 - player.bull;
             player.bull = 0;
         }
-        if (index != currentPlayerIndex && index != prevPlayerIndex){
+        if (index != currentPlayerIndex && index != prevPlayerIndex) {
             player.current = player.current - player.bull;
             player.bull = 0;
         }
@@ -86,7 +86,7 @@ export const getWhiteData = (state, payload) => {
     const newWhites = whites + 1;
     const time = getTime();
 
-    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: getPlayerName(players, playerId), message: ` забил белый. Снято штрафов - ${playersBulls}`}
+    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: getPlayerName(players, playerId), message: `забил белый` }
     return {
         players: newPlayers,
         totalBalls: newTotalBalls,
@@ -112,7 +112,7 @@ export const getYellowData = (state, payload) => {
             player.current = player.current - 1 - player.bull;
             player.bull = 0;
         }
-        if (index != currentPlayerIndex && index != prevPlayerIndex){
+        if (index != currentPlayerIndex && index != prevPlayerIndex) {
             player.current = player.current - player.bull;
             player.bull = 0;
         }
@@ -123,7 +123,7 @@ export const getYellowData = (state, payload) => {
     const newYellows = yellows + 1;
     const time = getTime();
 
-    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: getPlayerName(players, playerId), message: ` забил желтый. Снято штрафов - ${playersBulls}`}
+    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: getPlayerName(players, playerId), message: `забил желтый` }
     return {
         players: newPlayers,
         totalBalls: newTotalBalls,
@@ -149,7 +149,7 @@ export const getRedData = (state, payload) => {
             player.current = player.current - redPoints - player.bull;
             player.bull = 0;
         }
-        if (index != currentPlayerIndex && index != prevPlayerIndex){
+        if (index != currentPlayerIndex && index != prevPlayerIndex) {
             player.current = player.current - player.bull;
             player.bull = 0;
         }
@@ -160,7 +160,7 @@ export const getRedData = (state, payload) => {
     const newReds = reds + 1;
     const time = getTime();
 
-    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: getPlayerName(players, playerId), message: ` забил красный. Снято штрафов - ${playersBulls}`}
+    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: getPlayerName(players, playerId), message: `забил красный` }
     return {
         players: newPlayers,
         totalBalls: newTotalBalls,
@@ -177,7 +177,7 @@ export const getLastData = (state, payload) => {
 
     let newPlayers = players.map((player, index) => {
         if (index == currentPlayerIndex) {
-                player.current = player.current + lastBall;
+            player.current = player.current + lastBall;
         }
         if (index == prevPlayerIndex) {
             player.current = player.current - lastBall;
@@ -187,31 +187,20 @@ export const getLastData = (state, payload) => {
 
     const time = getTime();
 
-    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: getPlayerName(players, playerId), message: ` забил последний`}
+    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: getPlayerName(players, playerId), message: `забил последний` }
     return {
         players: newPlayers,
         logMessage: newLogMessage
     }
 };
 
-export const resetAndRevercePlayers = (playersArray) => {
-    console.log('playersArray ENTER', playersArray);
-    let newPlayers = playersArray.map(player => {
-        player.current = 0;
-        player.bull = 0;
-        player.totalWhites = 0;
-        player.totalYellows = 0;
-        player.totalReds = 0;
-        player.tottalBulls = 0;
-        return player;
-    }).reverse();
-    console.log('playersArray OUT', playersArray);
-
-    return newPlayers;
-};
-
 export const startRevLogMessage = () => {
     const time = getTime();
-    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: 'TEMP', message: ` Реверс начался`}
+    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: '', message: `Реверс начался` }
+    return newLogMessage;
+}
+export const startAvLogMessage = () => {
+    const time = getTime();
+    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: '', message: `Аверс начался` }
     return newLogMessage;
 }
