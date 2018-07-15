@@ -29,11 +29,11 @@ class StartOptions extends React.Component {
                 <div className="css-marker">
                     <div className="css-marker-title">Маркёр:</div>
                     <div className="css-marker-name">
-                        <input 
-                            className='css-text-input' 
-                            type="text" 
+                        <input
+                            className='css-text-input'
+                            type="text"
                             placeholder='Сегодня маркёрит...'
-                            onChange={setMarkerName}/>
+                            onChange={setMarkerName} />
                     </div>
                 </div>
                 <div className='css-start-option Reverce'>
@@ -71,28 +71,39 @@ class StartOptions extends React.Component {
                             onClick={selectOption.bind(this, 'isRandom', false)}>В порядке ввода имен</div>
                     </div>
                 </div>
+
+
+
+
+
                 <div className='css-start-option withRed'>
                     <div className="css-start-option-label">Игра с красным?</div>
                     <div className="css-start-option-content">
+
                         <div className={['css-start-option-content-item', withRed ? '' : 'selected'].join(' ')}
                             onClick={selectOption.bind(this, 'withRed', false)}>
                             Только желтый
                         </div>
-                        <div className='css-start-option-content-item'>
-                            <div className="css-set-container">
-                                <div className={['css-start-option-content-item', withRed ? 'selected' : ''].join(' ')}
-                                    onClick={selectOption.bind(this, 'withRed', true)}>С красным</div>
-                                {withRed &&
-                                    (<input
-                                        className='css-text-input'
-                                        type="number"
-                                        ref={this.red}
-                                        onChange={setValue.bind(this, 'redPoints')}
-                                        value={redPoints} />)}
-                            </div>
+                        <div className={['css-start-option-content-item', withRed ? 'selected' : ''].join(' ')}
+                            onClick={selectOption.bind(this, 'withRed', true)}>
+                            С красным
                         </div>
+                        {
+                            withRed &&
+                            <div className="css-set-container">
+                                <div className="css-set-container-label">Красный за:</div>
+                                <input className='css-text-input' type="number" ref={this.red} onChange={setValue.bind(this, 'redPoints')} value={redPoints} />
+                            </div>
+                        }
                     </div>
                 </div>
+
+
+
+
+
+
+
                 <div className='css-start-option lastBall'>
                     <div className="css-start-option-label">Последний шар за:</div>
                     <div className="css-start-option-content">

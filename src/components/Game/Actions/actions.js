@@ -8,7 +8,8 @@ import {
     SET_LAST,
     START_REVERCE,
     SET_AVERS,
-    SET_REVERCE
+    SET_REVERCE,
+    SET_GAMEOVER_MESS
 } from './actionTypes';
 
 export const setPlayerList = (list) => (
@@ -92,5 +93,10 @@ export const setAvers = () => {
 export const setReverce = () => {
     return {
         type: SET_REVERCE
+    }
+}
+export const setGameOverMessage = () => {
+    return {
+        type: SET_GAMEOVER_MESS
     }
 }

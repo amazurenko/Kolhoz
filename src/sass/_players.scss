@@ -1,3 +1,47 @@
 .css-player-name {
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    .css-remove-container {
+        margin-left: 8px;
+        display: flex;
+        align-items: center;
+        .css-remove-button{
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+        }
+    }
+}
+.css-add-player{
+    .css-add-container {
+        display: flex;
+        align-items: center;
+        .css-add-button {
+            width: 54px;
+            height: 54px;
+            cursor: pointer;
+        }
+    }
+}
+.css-players-validation{
+    .css-validation {
+        display: flex;
+        align-items: center;
+        background-color: #fff4f4;
+        margin-bottom: 8px;
+        padding-right: 8px;
+        .css-validation-icon-container{
+            display: flex;
+            margin-right: 20px;
+            .css-validation-icon{
+                width: 56px;
+                height: 56px;
+            }
+        }
+        .css-validation-text {
+            color: #9D0000;
+            font-style: italic;
+        }
+    }
 }

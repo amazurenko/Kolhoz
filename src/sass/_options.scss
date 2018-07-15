@@ -3,10 +3,17 @@
         justify-content: space-between;
     }
     .css-players-list{
-        width: 44%;
+        width: 50%;
+        .css-players {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+        }
     }
     .css-start-options-list{
-        width: 60%;
+        width: 50%;
+        font-size: 20px;
         .css-start-options{
             .css-marker{
                 display: flex;
@@ -32,35 +39,34 @@
                 }
                 .css-start-option-content{
                     width: 50%;
+                    .css-set-container{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .css-set-container-label{
+                            margin-bottom: 0;
+                            width: 50%;
+                        }
+                        .css-text-input{
+                            padding: 0;
+                            font-size: 28px;
+                            border-top: none;
+                            border-right: none;
+                            border-left: none;
+                            width: 30%;
+                            color: $_orangeText;
+                            &:focus{
+                                outline: none;
+                                box-shadow: none;
+                            }
+                         }
+                    }
                     .css-start-option-content-item{
                         margin-bottom: 8px;
                         cursor: pointer;
                         transition: 0.5s;
                         &.selected{
                             color: $_lightBlueText;
-                        }
-                        .css-set-container{
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            .css-start-option-content-item{
-                                margin-bottom: 0;
-                                width: 50%;
-                            }
-                            .css-text-input{
-                                padding: 0;
-                                font-size: 28px;
-                                border-top: none;
-                                border-right: none;
-                                border-left: none;
-                                width: 68%;
-                                flex-basis: 64%;
-                                color: $_orangeText;
-                                &:focus{
-                                    outline: none;
-                                    box-shadow: none;
-                                }
-                             }
                         }
                     }
                  }

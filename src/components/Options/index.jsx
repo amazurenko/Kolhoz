@@ -25,8 +25,8 @@ class Options extends React.Component {
     validateNames(players) {
         let messages = [];
         players.forEach(player => {
-            if (player.name == '') messages.push("ERR!!    ВВЕДИТЕ ИМЯ");
-            if (player.name != '' && player.name.length < 3) messages.push("ERR!! ИМЯ ДОЛЖНО СОДЕРЖАТЬ МИНИМУМ 3 СИМВОЛА");
+            if (player.name == '') messages.push("Имя не может быть пустым");
+            if (player.name != '' && player.name.length < 3) messages.push("Имя должно содержать минимум 3 символа");
         });
         return [... new Set(messages)];
     }

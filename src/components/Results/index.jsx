@@ -13,14 +13,15 @@ class Results extends React.Component {
         const { avers, reverce } = this.props.results;
         let sharePlayers;
         if (reverce.players && reverce.players != 0) {
+            let revercePlayers = reverce.players.reverse();
             sharePlayers = avers.players.map((player, index) => {
                 return {
                     name: player.name,
-                    current: player.current + reverce.players[index].current,
-                    totalWhites: player.totalWhites + reverce.players[index].totalWhites,
-                    totalReds: player.totalReds + reverce.players[index].totalReds,
-                    totalYellows: player.totalYellows + reverce.players[index].totalYellows,
-                    tottalBulls: player.tottalBulls + reverce.players[index].tottalBulls
+                    current: player.current + revercePlayers[index].current,
+                    totalWhites: player.totalWhites + revercePlayers[index].totalWhites,
+                    totalReds: player.totalReds + revercePlayers[index].totalReds,
+                    totalYellows: player.totalYellows + revercePlayers[index].totalYellows,
+                    tottalBulls: player.tottalBulls + revercePlayers[index].tottalBulls
                 }
             })
         }
@@ -112,13 +113,7 @@ class Results extends React.Component {
                     </div>
                     <div className="css-right">
                         {this.props.log.map((it, i) =>
-                            <div key={i} className={["log-item", 
-                            it.message == 'забил белый'
-                            ? "white"
-                            : it.message == 'забил желтый'
-                                ? "yellow"
-                                : "red"
-                            ].join(' ')}>
+                            <div key={i} className={["log-item", it.message == 'забил белый' ? "white" : it.message == 'забил желтый' ? "yellow" : it.message == 'забил красный' ? "red" : it.message == 'получил штраф' ? 'bull' : (it.message == 'Реверс начался' || it.message == 'Аверс начался' || it.message == 'Игра окончена') ? 'info' : ''].join(' ')}>
                                 <div className="time">{it.time}</div>
                                 <div className="name">{it.name}</div>
                                 <div className="message">{it.message}</div>

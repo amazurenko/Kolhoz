@@ -1,4 +1,4 @@
-import { getBullData, getWhiteData, getYellowData, getRedData, getLastData, startRevLogMessage, startAvLogMessage } from './operators'
+import { getBullData, getWhiteData, getYellowData, getRedData, getLastData, startRevLogMessage, startAvLogMessage, gameOverMessage } from './operators'
 
 const game = (state = {}, action) => {
     switch (action.type) {
@@ -17,6 +17,11 @@ const game = (state = {}, action) => {
                     avers: {},
                     reverce: {}
                 }
+            };
+        case 'SET_GAMEOVER_MESS':
+            return {
+                ...state,
+                log: [gameOverMessage(), ...state.log]
             };
         case 'SET_AVERS':
             let newStateAvers = Object.assign({}, state);
@@ -65,7 +70,7 @@ const game = (state = {}, action) => {
             let myNewState = {
                 ...state,
                 isReverce: true,
-                players: Array.from(cleanedPlayers),
+                players: Array.from(cleanedPlayers).reverse(),
                 totalBalls: 0,
                 totalBulls: 0,
                 whites: 0,

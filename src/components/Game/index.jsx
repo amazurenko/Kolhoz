@@ -16,7 +16,8 @@ import {
     setLast,
     stratReverce,
     setAvers,
-    setReverce
+    setReverce,
+    setGameOverMessage
 } from './Actions/actions'
 
 class Game extends React.Component {
@@ -49,7 +50,8 @@ class Game extends React.Component {
             setPage,
             setReverce,
             saveAvers,
-            saveReverce
+            saveReverce,
+            gameOverMessage
         } = this.props;
         
         const { withReverce, payAll, isRandom, withRed, redPoints, yellowPoints, lastBall, lastBallByCost, customBallPrice, ballPrice } = this.props.options;
@@ -99,6 +101,7 @@ class Game extends React.Component {
                                         isReverce={game.isReverce}
                                         players={game.players}
                                         setPage={setPage}
+                                        gameOverMessage={gameOverMessage}
                                     />
                                 })}
                             </div>
@@ -183,6 +186,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         saveReverce() {
             dispatch(setReverce())
+        },
+        gameOverMessage(){
+            dispatch(setGameOverMessage())
         }
     }
 }

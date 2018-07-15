@@ -204,3 +204,8 @@ export const startAvLogMessage = () => {
     let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: '', message: `Аверс начался` }
     return newLogMessage;
 }
+export const gameOverMessage = () => {
+    const time = getTime();
+    let newLogMessage = { time: `${time.hours}:${time.minutes}`, name: '', message: `Игра окончена` }
+    return newLogMessage;
+}

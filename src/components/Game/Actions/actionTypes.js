@@ -8,3 +8,4 @@ export const SET_LAST = 'SET_LAST';
 export const START_REVERCE = 'START_REVERCE';
 export const SET_AVERS = 'SET_AVERS';
 export const SET_REVERCE = 'SET_REVERCE';
+export const SET_GAMEOVER_MESS = 'SET_GAMEOVER_MESS';

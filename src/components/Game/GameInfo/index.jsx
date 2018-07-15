@@ -7,32 +7,33 @@ class GameInfo extends React.Component {
         super(props)
     }
     render() {
-        const { withReverce, payAll, isRandom, withRed, redPoints, lastBallByCost, lastBall, customBallPrice, ballPrice } = this.props;
+        const { withReverce, payAll, isRandom, withRed, redPoints, lastBallByCost, lastBall, customBallPrice, ballPrice, markerName } = this.props;
         return (
             <div className="css-game-info">
                 <div className="css-info-title">Условия игры:</div>
                 <div className="css-info-options">
+                    {markerName &&(<div className="css-info-option">
+                        {`Маркер: ${markerName}`}
+                    </div>)}
                     <div className="css-info-option">
-                        {withReverce ? '- C реверсом' : '- Без реверса'}
+                        {withReverce ? 'Игра с реверсом' : 'Игра без реверса'}
                     </div>
                     <div className="css-info-option">
-                        {payAll ? '- Свет на всех' : '- Платят минусовые'}
+                        {payAll ? 'Свет на всех' : 'Платят минусовые'}
                     </div>
                     <div className="css-info-option">
-                        {isRandom ? '- Автожеребьевка' : '- Без жеребьевки'}
+                        {isRandom ? 'Автожеребьевка' : 'Без жеребьевки'}
                     </div>
                     <div className="css-info-option">
-                        {withRed ? `- С красным. Красный за ${redPoints}` : '- Игра c одним цветным'}
+                        {withRed ? `С красным. Красный за ${redPoints}` : 'Игра c одним цветным'}
                     </div>
                     <div className="css-info-option">
-                        {lastBallByCost ? `- Последний за ${withRed ? redPoints : 1}` : `- Последний за ${lastBall}`}
+                        {lastBallByCost ? `Последний за ${withRed ? redPoints : 1}` : `Последний за ${lastBall}`}
                     </div>
-                    <div className="css-info-option">
-                        {customBallPrice ? `- Играем по  ${ballPrice} за шарик` : `- Цена за шар не указана.`}
-                    </div>
+                    {customBallPrice && (<div className="css-info-option">
+                        {`Играем по  ${ballPrice} за шарик`}
+                    </div>)}
                 </div>
-
-
             </div>
         )
     }
@@ -48,7 +49,8 @@ const mapStateToProps = (state) => {
         lastBallByCost: state.options.lastBallByCost,
         lastBall: state.options.lastBall,
         customBallPrice: state.options.customBallPrice,
-        ballPrice: state.options.ballPrice
+        ballPrice: state.options.ballPrice,
+        markerName: state.options.markerName
     }
 }
 

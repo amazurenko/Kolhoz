@@ -4,6 +4,9 @@
     .css-results-wrapper{
         display: flex;
         justify-content: space-between;
+        height: 80%;
+        max-height: 80vh;
+        overflow: hidden;
         .css-left{
             padding: 69px 10px 10px 10px;
             border-right: 1px solid $_mainBorderColor;
@@ -21,6 +24,7 @@
             border-right: 1px solid $_mainBorderColor;
             border-left: 1px solid $_mainBorderColor;
             flex-basis: 60%;
+            overflow: auto;
             .header{
                 font-size: 34px;
                 margin-bottom: 20px;
@@ -56,6 +60,7 @@
                 flex-grow: 1;
             }
             .css-center-right{
+
                 padding: 0 10px;
                 flex-grow: 1;
             }
@@ -65,13 +70,23 @@
             border-right: 1px solid $_mainBorderColor;
             border-left: 1px solid $_mainBorderColor;
             flex-basis: 20%;
+            overflow: auto;
             .log-item {
                 display: flex;
                 &.red{
-                    color: #c13232;
+                    color: #ff7777;
                 }
                 &.yellow{
                     color: #ec9800;
+                }
+                &.bull{
+                    background-color: #f3f2f2;
+                    font-weight: 600;
+                }
+                &.info{
+                    font-weight: 600;
+                    background-color: grey;
+                    color: white;
                 }
                 .time{
                     margin-right: 6px;

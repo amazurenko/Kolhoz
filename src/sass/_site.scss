@@ -48,7 +48,7 @@
 
     }
     .componentContainer{
-        width: 42%;
+        width: 50%;
         margin: 0 auto;
     }
 }
@@ -78,9 +78,9 @@
 }
 
 .css-text-input {
-    width: 300px;
+    width: 340px;
     padding: 8px;
-    font-size: 18px;
+    font-size: 20px;
     border-radius: 2px;
     border: 1px solid $_mainBorderColor;
     color: $_mainTextColor;
@@ -91,10 +91,6 @@
     &:focus{
         outline: none;
         box-shadow: $_shadow;
-    }
-    &.marginRight{
-        width: 220px;
-        margin-right: 20px;
     }
 }
 
@@ -113,8 +109,4 @@
 .css-controls{
     display: flex;
     justify-content: flex-end;
-}
-.css-validation {
-    color: red;
-    margin-top: 10px;
 }

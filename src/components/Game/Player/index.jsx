@@ -79,10 +79,12 @@ class Player extends React.Component {
                     this.props.saveAvers();
                 } else {
                     this.setState({ gameOver: true })
+                    this.props.gameOverMessage();
                     this.props.saveReverce();
                 }
             } else {
                 this.props.saveAvers();
+                this.props.gameOverMessage();
                 this.setState({ gameOver: true })
             }
         }
@@ -96,11 +98,13 @@ class Player extends React.Component {
                 this.setState({ reverceOverlay: true })
                 this.props.saveAvers();
             } else {
+                this.props.gameOverMessage();
                 this.setState({ gameOver: true })
                 this.props.saveReverce();
             }
         } else {
             this.props.saveAvers();
+            this.props.gameOverMessage();
             this.setState({ gameOver: true })
         }
     };
@@ -109,6 +113,7 @@ class Player extends React.Component {
             if (!this.props.isReverce) this.props.setReverce()
             this.setState({ reverceOverlay: false });
         } else {
+            this.props.gameOverMessage();
             this.setState({ gameOver: true })
         }
     }
@@ -139,7 +144,8 @@ class Player extends React.Component {
             setPage,
             setReverce,
             saveAvers,
-            saveReverce
+            saveReverce,
+            gameOverMessage
         } = this.props;
         return (
             <div className="css-player">
