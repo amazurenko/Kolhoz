@@ -113,6 +113,47 @@ const options = (state = initialState, action) => {
                 ...state,
                 ballPrice: action.payload
             };
+        case "REDUCE_REDPOINTS": 
+            let reducedRedPoints = state.redPoints > 0 ? state.redPoints-1 : 0;
+            return {
+                ...state,
+                redPoints: reducedRedPoints
+            };
+        case "INCREACE_REDPOINTS": 
+        let increacedRedPoints = state.redPoints +1;
+        return {
+            ...state,
+            redPoints: increacedRedPoints
+        };
+
+
+        case "INCREACE_LASTBALLPRICE": 
+        let increacedLastBallPrice = state.lastBall +1;
+        return {
+            ...state,
+            lastBall: increacedLastBallPrice
+        };
+        case "REDUCE_LASTBALLPRICE": 
+        let reducedLastBallPrice = state.lastBall > 0 ?  state.lastBall - 1 : 0;
+        return {
+            ...state,
+            lastBall: reducedLastBallPrice
+        };
+
+        case "INCREACE_BALLPRICE": 
+        let increacedBallPrice = state.ballPrice + 0.5;
+        return {
+            ...state,
+            ballPrice: increacedBallPrice
+        };
+        case "REDUCE_BALLPRICE": 
+        let reducedBallPrice = state.ballPrice > 0 ?  state.ballPrice - 0.5 : 0;
+        return {
+            ...state,
+            ballPrice: reducedBallPrice
+        };
+
+
         default:
             return state;
     }

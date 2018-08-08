@@ -13,7 +13,13 @@ import {
     SELECT_OPTION,
     SET_PRICE,
     SET_STORE_VALUE,
-    SET_MARKER
+    SET_MARKER,
+    REDUCE_REDPOINTS,
+    INCREACE_REDPOINTS,
+    INCREACE_LASTBALLPRICE,
+    REDUCE_LASTBALLPRICE,
+    INCREACE_BALLPRICE,
+    REDUCE_BALLPRICE
 } from "./actionTypes";
 
 export const addNewPlayer = () => (
@@ -76,5 +82,34 @@ export const setMarker = (event) => {
         payload: value
     }
 }
+export const redRedPoints = () => {
+    return {
+        type: REDUCE_REDPOINTS
+    }
+}
+export const incRedPoints = () => {
+    return {
+        type: INCREACE_REDPOINTS
+    }
+}
+export const incLastBallPrice = () => {
+    return {
+        type: INCREACE_LASTBALLPRICE
+    }
+}
+export const redLastBallPrice = () => {
+    return {
+        type: REDUCE_LASTBALLPRICE
+    }
+}
 
-
+export const incBallPrice = () => {
+    return {
+        type: INCREACE_BALLPRICE
+    }
+}
+export const redBallPrice = () => {
+    return {
+        type: REDUCE_BALLPRICE
+    }
+}

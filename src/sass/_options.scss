@@ -24,8 +24,41 @@
                 }
                 .css-marker-name {
                     width: 50%;
+                    display: flex;
+                    flex-direction: column;
                     .css-text-input{
-                        width: calc(100% - 18px);
+                        width: auto;
+                    }
+                    .css-datalist{
+                        visibility: hidden;
+                        position: absolute;
+                        top: 180px;
+                        background-color: white;
+                        border: 1px solid $_mainBorderColor;
+                        border-radius: 2px;
+                        min-width: 200px;
+                        box-shadow: 6px 3px 10px #cecece;
+                        opacity: 0.5;
+                        transition: visibility 0s, opacity 0.3s linear;
+                        &.visible{
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                        button {
+                            background-color: #fff;
+                            border-style: none;
+                            color: $_mainTextColor;
+                            font-size: 16px;
+                            font-weight: 800;
+                            cursor: pointer;
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                        }
+                        .css-datalist-option{
+                            padding: 8px;
+                            cursor: pointer;
+                        }
                     }
                 }
             }
@@ -43,23 +76,11 @@
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
+                        margin-bottom: 8px;
                         .css-set-container-label{
                             margin-bottom: 0;
                             width: 50%;
                         }
-                        .css-text-input{
-                            padding: 0;
-                            font-size: 28px;
-                            border-top: none;
-                            border-right: none;
-                            border-left: none;
-                            width: 30%;
-                            color: $_orangeText;
-                            &:focus{
-                                outline: none;
-                                box-shadow: none;
-                            }
-                         }
                     }
                     .css-start-option-content-item{
                         margin-bottom: 8px;
@@ -70,8 +91,15 @@
                         }
                     }
                  }
-                &.BallPrice {
-                    margin-bottom: 10px;
+                .css-controll-button{
+                    width: 26px;
+                    height: 26px;
+                    cursor: pointer;
+                }
+                .css-Ovalue{
+                    text-align: center;
+                    font-size: 24px;
+                    color: $_orangeText;
                 }
             }
         }

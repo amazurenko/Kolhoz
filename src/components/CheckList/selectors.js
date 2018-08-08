@@ -16,6 +16,7 @@ export const getStartupData = state => {
         payAll: options.payAll,
         withReverce: options.withReverce,
         players: options.players,
-        startupData: data
+        startupData: data,
+        markerName: options.markerName
     }
 }

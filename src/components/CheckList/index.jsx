@@ -14,14 +14,14 @@ class CheckList extends React.Component {
                 position: Math.floor(Math.random() * 10001),
                 current: 0,
                 bull: 0,
-                totalWhites:0,
+                totalWhites: 0,
                 totalReds: 0,
                 totalYellows: 0,
                 tottalBulls: 0
             }
         })
         if (this.props.isRandom) {
-            players.sort((a,b) => a.position - b.position)
+            players.sort((a, b) => a.position - b.position)
         }
         this.props.setPlayers(players);
         this.props.unsetOverlay();
@@ -40,6 +40,7 @@ class CheckList extends React.Component {
             lastBall,
             customBallPrice,
             ballPrice,
+            markerName,
 
             unsetOverlay,
             setPage
@@ -65,6 +66,9 @@ class CheckList extends React.Component {
                             </div>
                             <div className="css-items">
                                 <div className="css-item">
+                                    {markerName ? `Маркер: ${markerName}` : 'Без маркера'}
+                                </div>
+                                <div className="css-item">
                                     {withReverce ? 'C реверсом' : 'Без реверса'}
                                 </div>
                                 <div className="css-item">
@@ -88,7 +92,7 @@ class CheckList extends React.Component {
                     <div className="css-footer">
                         <div className="css-footer-controls">
                             <div className="css-button cancel" onClick={unsetOverlay}>Назад</div>
-                            <div className="css-button start"  onClick={this.handleStart.bind(this, 'Game')}>Старт</div>
+                            <div className="css-button start" onClick={this.handleStart.bind(this, 'Game')}>Старт</div>
                         </div>
                     </div>
                 </div>
@@ -101,7 +105,7 @@ class CheckList extends React.Component {
 const mapStateToProps = getStartupData;
 const mapDispatchToProps = (dispatch) => {
     return {
-        setPlayers(list){
+        setPlayers(list) {
             dispatch(setPlayerList(list))
         }
     }

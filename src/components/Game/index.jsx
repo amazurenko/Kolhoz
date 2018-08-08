@@ -53,7 +53,7 @@ class Game extends React.Component {
             saveReverce,
             gameOverMessage
         } = this.props;
-        
+
         const { withReverce, payAll, isRandom, withRed, redPoints, yellowPoints, lastBall, lastBallByCost, customBallPrice, ballPrice } = this.props.options;
         const bulls = this.playersWithBulls(game.players);
         let whitesArr = new Array(15 - (game.whites > 15 ? 15 : game.whites)).fill(0);
@@ -61,17 +61,19 @@ class Game extends React.Component {
             <div className='css-game'>
                 <div className="css-body">
                     <div className="css-left-bar">
-                        <div className="css-timer"></div>
                         <div className="css-info">
                             <GameInfo />
                         </div>
-                    </div>
-                    <div className="css-center-block">
                         {whitesArr.length > 0 && (
                             <div className="css-total-whites">
                                 {whitesArr.map((ball, index) => (<div key={index} className="whiteBallItem"></div>))}
                             </div>
                         )}
+                        <div className="css-timer"></div>
+
+                    </div>
+                    <div className="css-center-block">
+
                         <div className="css-main">
                             <div className="css-players-grid">
                                 {game.players.map(player => {
@@ -159,8 +161,6 @@ const mapStateToProps = (state) => state;
 const mapDispatchToProps = (dispatch) => {
     return {
         handleBall(playerId, points, itWasRed, playerName, itWasLast, lastBallPoints, itWasWhite) {
-            console.log('handleBall', itWasLast)
-            console.log('handleBall', lastBallPoints)
             dispatch(setBall(playerId, points, itWasRed, playerName, itWasLast, lastBallPoints, itWasWhite))
         },
         handleBull(config) {
@@ -187,7 +187,7 @@ const mapDispatchToProps = (dispatch) => {
         saveReverce() {
             dispatch(setReverce())
         },
-        gameOverMessage(){
+        gameOverMessage() {
             dispatch(setGameOverMessage())
         }
     }

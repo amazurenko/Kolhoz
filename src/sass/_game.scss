@@ -8,6 +8,21 @@
     flex-direction: column;
     justify-content: space-between;
     height: calc(100% - 135px);
+    .css-total-whites{
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding: 10px;
+        width: 88%;
+        .whiteBallItem{
+            width: 20px;
+            height: 20px;
+            margin: 2px;
+            background-color: #fff;
+            border-radius: 50%;
+            border: 2px solid $_mainBorderColor;
+        }
+    }
 
     .css-body {
         height: 80%;
@@ -27,12 +42,11 @@
                 border-radius: 6px;
                 padding: 10px;
             }
-            .css-timer {
-                flex-grow: 1;
-                margin-bottom: 10px;
+            .css-info {
+                margin-bottom: 0;
 
             }
-            .css-info {
+            .css-timer {
                 flex-grow: 3;
             }
 
@@ -62,19 +76,6 @@
                         width: 46px;
                         height: 46px;
                     }
-                }
-            }
-            .css-total-whites{
-                display: flex;
-                justify-content: flex-start;
-                padding: 0 10px 6px 10px;
-                .whiteBallItem{
-                    width: 14px;
-                    height: 14px;
-                    margin-right: 6px;
-                    background-color: white;
-                    border-radius: 50%;
-                    border: 1px solid $_mainBorderColor;
                 }
             }
             .css-main{

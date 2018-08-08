@@ -9,7 +9,13 @@ import {
     setOption,
     setStoreValue,
     setBallPrice,
-    setMarker
+    setMarker,
+    redRedPoints,
+    incRedPoints,
+    redLastBallPrice,
+    incLastBallPrice,
+    redBallPrice,
+    incBallPrice
 } from './Actions/actions';
 
 class Options extends React.Component {
@@ -44,9 +50,16 @@ class Options extends React.Component {
             customBallPrice,
             lastBall,
             ballPrice,
+            markerName,
 
 
             setValue,
+            increaseRedPoints,
+            reduceRedPoints,
+            reduceLastBallPrice,
+            increaseLastBallPrice,
+            reduceBallPrice,
+            increaseBallPrice,
             setMarkerName,
             setPage,
             setPrice,
@@ -90,6 +103,14 @@ class Options extends React.Component {
                             lastBallByCost={lastBallByCost}
                             customBallPrice={customBallPrice}
                             setMarkerName={setMarkerName}
+                            players={players}
+                            markerName={markerName}
+                            reduceRedPoints={reduceRedPoints}
+                            increaseRedPoints={increaseRedPoints}
+                            reduceLastBallPrice={reduceLastBallPrice}
+                            increaseLastBallPrice={increaseLastBallPrice}
+                            reduceBallPrice={reduceBallPrice}
+                            increaseBallPrice={increaseBallPrice}
                         />
                     </div>
                 </div>
@@ -124,7 +145,25 @@ const mapDispatchToProps = (dispatch) => {
         },
         setValue(key, event) {
             dispatch(setStoreValue(key, event))
-        }
+        },
+        increaseRedPoints() {
+            dispatch(incRedPoints())
+        },
+        reduceRedPoints() {
+            dispatch(redRedPoints())
+        },
+        reduceLastBallPrice(){
+            dispatch(redLastBallPrice())
+        },
+        increaseLastBallPrice(){
+            dispatch(incLastBallPrice())
+        },
+        reduceBallPrice(){
+            dispatch(redBallPrice())
+        },
+        increaseBallPrice(){
+            dispatch(incBallPrice())
+        },
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Options);
