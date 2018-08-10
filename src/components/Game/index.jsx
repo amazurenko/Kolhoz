@@ -55,6 +55,7 @@ class Game extends React.Component {
         } = this.props;
 
         const { withReverce, payAll, isRandom, withRed, redPoints, yellowPoints, lastBall, lastBallByCost, customBallPrice, ballPrice } = this.props.options;
+        const { isReverce, players, results, totalBalls, totalBulls, whites, reds, yellows} = this.props.game;
         const bulls = this.playersWithBulls(game.players);
         let whitesArr = new Array(15 - (game.whites > 15 ? 15 : game.whites)).fill(0);
         return (
@@ -122,8 +123,39 @@ class Game extends React.Component {
                     </div>
                     <div className="css-right-bar">
                         <div className="css-statistic">
-                            <GameStatistic />
-                            <PlayersStatistic />
+                            {/* <GameStatistic /> */}
+                            {
+                                isReverce ?
+                                    <React.Fragment>
+                                        <PlayersStatistic
+                                            withRed={withRed}
+                                            players={results.avers.players}
+                                            totalBalls={results.avers.totalBalls}
+                                            totalBulls={results.avers.totalBulls}
+                                            whites={results.avers.whites}
+                                            reds={results.avers.reds}
+                                            yellows={results.avers.yellows}
+                                            title='Аверс' />
+                                        <PlayersStatistic
+                                            withRed={withRed}
+                                            players={players}
+                                            totalBalls={totalBalls}
+                                            totalBulls={totalBulls}
+                                            whites={whites}
+                                            reds={reds}
+                                            yellows={yellows}
+                                            title='Реверс' />
+                                    </React.Fragment>
+                                    : <PlayersStatistic
+                                        withRed={withRed}
+                                        players={players}
+                                        totalBalls={totalBalls}
+                                        totalBulls={totalBulls}
+                                        whites={whites}
+                                        reds={reds}
+                                        yellows={yellows}
+                                        title='Аверс' />
+                            }
                         </div>
                         <div className="css-log">
                             <div className='css-logs-container'>

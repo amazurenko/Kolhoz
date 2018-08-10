@@ -130,7 +130,7 @@ class StartOptions extends React.Component {
                         {
                             withRed &&
                             <div className="css-set-container">
-                                <div>Красный за:</div>
+                                <div className="css-set-container-label">Красный за:</div>
                                 <img className='css-controll-button' src={remove} alt="" onClick={reduceRedPoints} />
                                 <div className='css-css-Ovalue-value'>{redPoints}</div>
                                 <img className='css-controll-button' src={add} alt="" onClick={increaseRedPoints} />
@@ -159,7 +159,7 @@ class StartOptions extends React.Component {
                         {
                             !lastBallByCost &&
                             <div className="css-set-container">
-                                <div>Последний за:</div>
+                                <div className="css-set-container-label">Последний за:</div>
                                 <img className='css-controll-button' src={remove} alt="" onClick={reduceLastBallPrice} />
                                 <div className='css-css-Ovalue-value'>{lastBall}</div>
                                 <img className='css-controll-button' src={add} alt="" onClick={increaseLastBallPrice} />
@@ -185,7 +185,7 @@ class StartOptions extends React.Component {
                         {
                             customBallPrice &&
                             <div className="css-set-container">
-                                <div>За шар:</div>
+                                <div className="css-set-container-label">За шар:</div>
                                 <img className='css-controll-button' src={remove} alt="" onClick={reduceBallPrice} />
                                 <div className='css-css-Ovalue-value'>{ballPrice}</div>
                                 <img className='css-controll-button' src={add} alt="" onClick={increaseBallPrice} />

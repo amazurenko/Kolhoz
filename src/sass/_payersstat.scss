@@ -1,10 +1,21 @@
 .css-players-statistic{
     display: flex;
     flex-direction: column;
+    border-top: 1px solid $_mainBorderColor;
+    border-bottom: 1px solid $_mainBorderColor;
+    margin-bottom: 2px;
+    padding: 6px 0;
+    .css-game-type{
+        font-size: 20px;
+        color: $_lightBlueText;
+        text-decoration: underline;
+        margin-bottom: 8px;
+    }
     .css-stat-player {
         display: flex;
         padding: 4px 0;
         justify-content: space-between;
+        align-items: center;
         .css-player-stat-name{
             font-size: 20px;
             margin-right: 12px;
@@ -25,6 +36,14 @@
                 margin-right: 12px;
                 .css-player-total-value {
                     color: white;
+                }
+                &.current{
+                    width: 50px;
+                    border: 1px solid $_mainBorderColor;
+                    border-radius: 10%;
+                    .css-player-total-value{
+                        color: $_mainTextColor;
+                    }
                 }
                 &.whites{
                     background-color: white;
@@ -62,6 +81,11 @@
                 }
             }
         }
-
+        &.header{
+            padding-bottom: 20px;
+            .css-player-stat-name{
+                color: $_lightBlueText;
+            }
+        }
     }
 }

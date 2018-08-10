@@ -7,9 +7,52 @@ class PlayersStatistic extends React.Component {
         super(props)
     }
     render() {
-        const { players, withRed } = this.props;
+        const { players, withRed, title, totalBalls, totalBulls, whites, reds, yellows } = this.props;
         return (
             <div className="css-players-statistic">
+                <div className='css-stat-player header'>
+                    <div className="css-player-stat-name">
+                        {title}
+                    </div>
+                    <div className="css-player-stat-options">
+                        <div className="css-player-total current">
+                            <div className="css-player-total-value">
+                                {totalBalls}
+                            </div>
+                        </div>
+                        <div className="css-player-total whites">
+                            <div className="css-player-total-value">
+                                {whites}
+                            </div>
+                        </div>
+                        <div className="css-player-total yellows">
+                            <div className="css-player-total-value">
+                                {yellows}
+                            </div>
+                        </div>
+                        {withRed && (
+                            <div className="css-player-total reds">
+                                <div className="css-player-total-value">
+                                    {reds}
+                                </div>
+                            </div>)}
+                        <div className="css-player-total bulls">
+                            <img className='css-player-stat-bull' src={img} alt="" />
+                            <div className="css-player-total-value">
+                                {totalBulls}
+                            </div>
+                        </div>
+                        <div className="css-player-total all">
+                            <div className="css-player-total-value">
+                                {yellows + reds + whites}
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
                 {players.map(player => (
                     <div className='css-stat-player' key={player.id}>
 
@@ -17,6 +60,11 @@ class PlayersStatistic extends React.Component {
                             {`${player.name}:`}
                         </div>
                         <div className="css-player-stat-options">
+                            <div className="css-player-total current">
+                                <div className="css-player-total-value">
+                                    {player.current}
+                                </div>
+                            </div>
                             <div className="css-player-total whites">
                                 <div className="css-player-total-value">
                                     {player.totalWhites}
@@ -45,21 +93,20 @@ class PlayersStatistic extends React.Component {
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 ))}
+
             </div>
 
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        players: state.game.players,
-        withRed: state.options.withRed
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+//         players: state.game.players,
+//         withRed: state.options.withRed
+//     }
+// }
 
-export default connect(mapStateToProps, null)(PlayersStatistic);
+export default PlayersStatistic;
