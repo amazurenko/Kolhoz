@@ -5,6 +5,7 @@ cache:
     - "node_modules"
 before_install:
   #- npm cache clean -f
+  - npm i -g npm@6.2.0
   - npm i npm run dev
 script:
   - npm run dev
