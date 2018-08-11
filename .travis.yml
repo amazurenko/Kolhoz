@@ -17,9 +17,10 @@ before_install:
   #- npm install -g inotify
   #- npm i
 script:
-  - npm run dev
+#  - npm run dev
 #  - npm test
-#  - npm run build  
+  - webpack --display-error-details
+  - npm run build  
 deploy:
   provider: pages
   skip-cleanup: true
