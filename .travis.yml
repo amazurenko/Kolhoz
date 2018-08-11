@@ -1,27 +1,16 @@
 sudo: required
 language: node_js
 node_js:
-  - "iojs"
   - "stable"
-  
-#   - "10"
-#   - lts/*
 #cache:
 #  directories:
 #    - "node_modules"
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-8
 before_install:
   - npm cache clean -f
   #  - npm i -g npm@6.2.0
-  #- npm i npm run dev
-  - npm install
+  - npm i
 script:
-  #- npm run dev
+#  - npm run dev
 #  - npm test
   - npm run build  
 deploy:
