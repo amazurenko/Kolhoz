@@ -1,24 +1,17 @@
 sudo: required
-
 language: node_js
-
-# services:
-#   - docker
-
 before_install:
-# - docker pull node:alpine
-# - docker run -d -p 80:3001 --expose 3001 -v $(pwd):/opt/app/ -w=/opt/app/  node:alpine /bin/sh -c "npm install && npm run dev"
-# - docker ps -a
- - npm cache clean -f
- - npm install
-
+- npm cache clean -f
+- npm install
 script:
 - npm run dev
-
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  github-token: "$GITHUB_DEPLOY_TOKEN"
   keep-history: true
   on:
     branch: master
+env:
+  global:
+    secure: arTrKkzng4g3DWIhgopnTfABWezy9hXzPYRCo2TZ1goSdiLeRG2p9PHL7QFSRIZAY/cZK/j25zuDckTddemDGboYJpmIKUWv+QG37hmLBBlybkI/6lod6v9kIBcCguf1yncNf6WLYUfPppTg9EmiZgfa/fVAqdw11GxwQcb6WHgAwfvso/TdG/suuVw/p0Yp1ugcc12pEtH7ylzRb+Jxx/aJE1KJwZu4WWTC0UFm2y5RCh/ycC+LCuNe7K3OJrqlkX5LMZKT9PT2HSM+eY3Q4D8MzGLJcaEWcOzG5nrjvwB0P9HgtS2iCbYgEQkJDS/PohPqXVKGC/Dv800wqTPSEYVMC446nrXE9a7ZWKI3gYps9vYvC7jhqAyqKuV00TzM5NyqKCh2Df51NGDF8ZUY8KcBuAQORE3c9mo73+if8+6WWF7wkfhQ43dTi+n2DwTaPGq0Ldd3mvqt40X/NhwCY5S6mFzFjWruzvlxselpKYd4/8nxvv27VYWIGSRz36Ev36MKIsyQc7PXiQdUaFdz9DpPCvIRYlaFlWxehcafRclF5gBKmpaT53ljRiAEMcBxaub6oqJu6g4RYha6Rr1Epi3jkwGNh7BldhTl87EZk0QUuKfJo3ABQ5IzbFhkHEb5gARvEX16+j1XOY9fixVDs+5JdmhvQBgyH4I/f1ZGjgQ=
