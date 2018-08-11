@@ -5,6 +5,12 @@ node_js:
 #cache:
 #  directories:
 #    - "node_modules"
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - build-essentials
 before_install:
   - npm cache clean -f
   #  - npm i -g npm@6.2.0
