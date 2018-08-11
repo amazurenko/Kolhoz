@@ -19,7 +19,7 @@ services:
 #  - npm install -g inotify
 #  - npm i
 script:
-   - docker run --rm -v $(pwd):/opt/app/ -w=/opt/app/  node:alpine sh -c "npm install && npm audit fix && npm ci && npm run build"
+   - docker run --rm -v $(pwd):/opt/app/ -w=/opt/app/  node sh -c "npm install && npm audit fix && npm ci && npm run build"
 #  - npm run dev
 #  - npm test
 #  - npm run build  
