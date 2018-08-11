@@ -1,5 +1,5 @@
+'use strict';
 const path = require('path');
-
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -23,7 +23,7 @@ const webpack = require('webpack');
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     publicPath: '/',
-    open: true,
+    open: false,
     overlay: true,
     host: '0.0.0.0',
     port: 3001
