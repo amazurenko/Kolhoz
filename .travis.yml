@@ -5,27 +5,23 @@ sudo: required
 #cache:
 #  directories:
 #    - "node_modules"
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - git-core
+#addons:
+#  apt:
+#    sources:
+#      - ubuntu-toolchain-r-test
+#    packages:
+#      - git-core
 services:
   - docker
 before_install:
-   - docker --version
-   - git --version
-   - ls -la
-   - pwd
-   - mkdir tmp && git clone https://github.com/amazurenko/Kolhoz.git ./tmp/
-   - ls -la
 #  - npm cache clean -f
 #  - npm i -g npm@6.2.0
 #  - npm install -g inotify
 #  - npm i
-script:
-   - cd ./tmp/ && docker run --rm -v $(pwd):/opt/app/ -w=/opt/app/  node:slim sh -c "npm install && npm audit fix && npm ci && npm run build"
+install:
+   - docker run --rm -v $(pwd):/opt/app/ -w=/opt/app/  node:slim sh -c "npm install && npm audit fix && npm ci && npm run build"
+#script:
+#   - docker run --rm -v $(pwd):/opt/app/ -w=/opt/app/  node:slim sh -c "npm install && npm audit fix && npm ci && npm run build"
 #  - npm run dev
 #  - npm test
 #  - npm run build  
