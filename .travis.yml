@@ -16,7 +16,9 @@ services:
 before_install:
    - docker --version
    - ls -la
-   - rm -rf * && git clone https://github.com/amazurenko/Kolhoz.git ./
+   - pwd
+   - rm -rf *
+   - git clone https://github.com/amazurenko/Kolhoz.git ./
    - ls -la
 #  - npm cache clean -f
 #  - npm i -g npm@6.2.0
