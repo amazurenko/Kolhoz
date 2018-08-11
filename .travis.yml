@@ -8,6 +8,7 @@ node_js:
 before_install:
   - npm cache clean -f
   #  - npm i -g npm@6.2.0
+  - npm install -g innotify
   - npm i
 script:
 #  - npm run dev
