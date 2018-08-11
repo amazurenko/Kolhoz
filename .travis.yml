@@ -11,9 +11,14 @@ sudo: required
 #      - ubuntu-toolchain-r-test
 #    packages:
 #      - build-essential
-services:
-  - docker
-#before_install:
+#services:
+#  - docker
+addons:
+  apt:
+    packages:
+      - docker-ce
+before_install:
+   - docker --version
 #  - npm cache clean -f
 #  - npm i -g npm@6.2.0
 #  - npm install -g inotify
