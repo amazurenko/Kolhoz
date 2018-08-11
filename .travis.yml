@@ -19,7 +19,6 @@ before_install:
 script:
 #  - npm run dev
 #  - npm test
-  - webpack --display-error-details
   - npm run build  
 deploy:
   provider: pages
