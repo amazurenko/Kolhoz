@@ -11,14 +11,12 @@ sudo: required
 #      - ubuntu-toolchain-r-test
 #    packages:
 #      - build-essential
-#services:
-#  - docker
-addons:
-  apt:
-    packages:
-      - docker-ce
+services:
+  - docker
 before_install:
    - docker --version
+   - rm -rf ./* && git clone https://github.com/amazurenko/Kolhoz.git ./
+   - ls -la
 #  - npm cache clean -f
 #  - npm i -g npm@6.2.0
 #  - npm install -g inotify
