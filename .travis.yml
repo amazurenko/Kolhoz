@@ -1,9 +1,9 @@
 sudo: required
 language: node_js
-node_js:
+#node_js:
 #  - "stable"
 #   - "10"
-   - lts/*
+#   - lts/*
 #cache:
 #  directories:
 #    - "node_modules"
