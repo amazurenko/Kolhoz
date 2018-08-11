@@ -10,7 +10,7 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - build-essentials
+      - build-essential
 before_install:
   - npm cache clean -f
   #  - npm i -g npm@6.2.0
