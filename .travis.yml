@@ -1,9 +1,11 @@
 sudo: required
 language: node_js
+cache:
+  directories:
+    - "node_modules"
 before_install:
 - npm cache clean -f
 - npm i npm run dev
-- npm audit fix
 script:
 - npm run dev
 deploy:
