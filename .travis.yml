@@ -2,13 +2,13 @@ sudo: required
 language: node_js
 node_js:
   - "stable"
-cache:
-  directories:
-    - "node_modules"
+#cache:
+#  directories:
+#    - "node_modules"
 
-#before_install:
-  #- npm cache clean -f
-#  - npm i -g npm@6.2.0
+before_install:
+  - npm cache clean -f
+  #  - npm i -g npm@6.2.0
   #- npm i npm run dev
 script:
   #- npm run dev
