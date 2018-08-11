@@ -2,7 +2,8 @@ sudo: required
 language: node_js
 before_install:
 - npm cache clean -f
-- npm install
+- npm i npm run dev
+- npm audit fix
 script:
 - npm run dev
 deploy:
