@@ -4,10 +4,10 @@ cache:
   directories:
     - "node_modules"
 before_install:
-- npm cache clean -f
-- npm i npm run dev
+  #- npm cache clean -f
+  - npm i npm run dev
 script:
-- npm run dev
+  - npm run dev
 deploy:
   provider: pages
   skip-cleanup: true
