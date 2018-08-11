@@ -25,6 +25,7 @@ const webpack = require('webpack');
     publicPath: '/',
     open: true,
     overlay: true,
+    host: '0.0.0.0',
     port: 3001
   },
   module: {
