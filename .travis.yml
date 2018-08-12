@@ -30,7 +30,7 @@ before_install:
 install:
 #   - docker run --rm -v $(pwd):/opt/app/ -w=/opt/app/  node:alpine sh -c "apk update && apk upgrade && apk add --no-cache bash git openssh; git clone https://github.com/amazurenko/Kolhoz.git ./; npm install && npm audit fix && npm ci && npm run build"
 script:
-   - docker run --rm -v $(pwd):/opt/app/ -w=/opt/app/  node:alpine sh -c "npm ci && npm run build"
+   - docker run --rm -v $(pwd):/opt/app/ -w=/opt/app/  node:alpine sh -c "npm ci -ddd && npm run build -ddd"
 #  - npm run dev
 #  - npm test
 #  - npm run build  
