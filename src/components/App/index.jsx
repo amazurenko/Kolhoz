@@ -13,7 +13,7 @@ import {
     deactivateOverlay,
     setValidationMessages,
     clearValidationMessages
-} from './actions/actions';
+} from './Actions/actions';
 
 
 class App extends React.Component {
