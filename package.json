@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "webpack --mode production --display-error-details",
+    "build": "webpack --mode production --display-error-details --display-modules",
     "dev": "webpack-dev-server --mode development"
   },
   "repository": {
