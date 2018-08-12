@@ -20,9 +20,9 @@ services:
   - docker
 before_install:
    - pwd
-   - ls -la 
-   - rm -rf $(pwd)/* .babelrc .git .gitignore .travis.yml
-   - ls -la
+#   - ls -la 
+#   - rm -rf $(pwd)/* .babelrc .git .gitignore .travis.yml
+#   - ls -la
 #  - npm cache clean -f
 #  - npm i -g npm@6.2.0
 #  - npm install -g inotify
