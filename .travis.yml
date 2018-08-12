@@ -11,6 +11,11 @@ sudo: required
 #      - ubuntu-toolchain-r-test
 #    packages:
 #      - git-core
+git:
+  depth: false
+branches:
+  only:
+  - master
 services:
   - docker
 before_install:
